@@ -1,3 +1,4 @@
+<img width="1408" height="768" alt="IMG_0706" src="https://github.com/user-attachments/assets/b7be0a57-beee-4438-8a92-65d5429ba938" />
 # Z2Z (Zero to Zenith) Litepaper: The Blueprint of Truth
 
 ## 1. The Reality (99.999% is a Money Game)
