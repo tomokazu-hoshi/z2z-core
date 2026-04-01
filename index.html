@@ -8,7 +8,7 @@
         :root {
             --bg-color: #050505;
             --text-main: #e0e0e0;
-            --text-accent: #00ffcc; /* サイバー感のあるネオングリーン */
+            --text-accent: #00ffcc; 
             --border-color: #333;
         }
 
@@ -100,18 +100,58 @@
             color: var(--bg-color);
         }
 
-        ul {
-            list-style-type: none;
-            padding: 0;
+        /* アーカイブ用のアコーディオン装飾 */
+        details {
+            margin-bottom: 15px;
+            background-color: #0a0a0a;
+            border-left: 3px solid var(--border-color);
+            padding: 10px 15px;
+            transition: border-color 0.3s ease;
         }
 
-        li {
-            margin-bottom: 10px;
+        details:hover {
+            border-left: 3px solid var(--text-accent);
         }
 
-        li::before {
-            content: "> ";
+        summary {
+            cursor: pointer;
             color: var(--text-accent);
+            font-weight: bold;
+            font-size: 1.1rem;
+            outline: none;
+            list-style: none; /* デフォルトの矢印を消す */
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary::before {
+            content: "[ + ] ";
+            color: #888;
+        }
+
+        details[open] summary::before {
+            content: "[ - ] ";
+            color: var(--text-accent);
+        }
+
+        .lesson-content {
+            margin-top: 15px;
+            padding-top: 10px;
+            border-top: 1px dashed #333;
+            font-size: 0.95rem;
+            color: #ccc;
+        }
+
+        .latest-badge {
+            background-color: var(--text-accent);
+            color: var(--bg-color);
+            padding: 2px 6px;
+            font-size: 0.7rem;
+            font-weight: bold;
+            margin-left: 10px;
+            vertical-align: middle;
         }
 
         footer {
@@ -160,13 +200,39 @@
 
         <section class="archive">
             <h2>> The Filter Archive</h2>
-            <p>The timeline has been educated. Review our Brutal Lessons and understand how the casino operates.</p>
-            <ul>
-                <li>Lesson 01: The Illusion of "Dev is Based"</li>
-                <li>Lesson 02: Fake Volume & Wash Trading</li>
-                <li>Lesson 03: The "100% LP Burned" Trap</li>
-                <li>Lesson 04: Resolving the Zombie Bags</li>
-            </ul>
+            <p>The timeline has been educated. Review our Brutal Lessons and understand how the casino operates. Access the decrypted files below.</p>
+
+            <details>
+                <summary>Lesson 01: The Illusion of "Dev is Based"<span class="latest-badge">LATEST ENTRY</span></summary>
+                <div class="lesson-content">
+                    <p><strong>[ LOGIC OVERVIEW ]</strong> "Based (信頼できる)" is merely a manipulation tactic used by scammers.</p>
+                    <p>Developers build fake trust in Telegram or X by chatting, joining voice calls, and appearing transparent. Meanwhile, they hold 60% of the token supply distributed across 10-15 hidden (stealth) wallets. When the hype peaks and retail investors buy in, they dump their hidden bags simultaneously. Never trust words. Trust only on-chain math and wallet movements.</p>
+                </div>
+            </details>
+
+            <details>
+                <summary>Lesson 02: Fake Volume & Wash Trading</summary>
+                <div class="lesson-content">
+                    <p><strong>[ LOGIC OVERVIEW ]</strong> High trading volume is an illusion to trigger your FOMO (Fear Of Missing Out).</p>
+                    <p>Scammers deploy automated sniper bots to buy and sell their own tokens back and forth rapidly. This creates a fake "Trending" status on Pump.fun and DexScreener. It looks like massive adoption, but it's just one entity moving money between its right and left pockets to lure you in as exit liquidity.</p>
+                </div>
+            </details>
+
+            <details>
+                <summary>Lesson 03: The "100% LP Burned" Trap</summary>
+                <div class="lesson-content">
+                    <p><strong>[ LOGIC OVERVIEW ]</strong> Burning the Liquidity Pool (LP) means absolutely nothing if the supply is compromised.</p>
+                    <p>You will often see "LP BURNED! 100% SAFE!" This guarantees they cannot pull the liquidity directly (Rug Pull). However, if the developer and their insiders hold a massive percentage of the actual tokens, they don't need to pull the LP. They simply sell their massive holdings into the pool, draining all the Solana out of it and driving the price to zero. This is a "Soft Rug."</p>
+                </div>
+            </details>
+
+            <details>
+                <summary>Lesson 04: Resolving the Zombie Bags</summary>
+                <div class="lesson-content">
+                    <p><strong>[ LOGIC OVERVIEW ]</strong> Early wallets that never sell are not your friends. They are ticking time bombs.</p>
+                    <p>When you audit a token, you may find wallets that bought in the first 3 seconds of launch and haven't sold a single coin despite massive profits. Retail investors think these are "Diamond Hands." Z2Z logic dictates otherwise: these are Zombie Bags controlled by the dev, patiently waiting for maximum liquidity to execute a fatal dump.</p>
+                </div>
+            </details>
         </section>
 
         <footer>
