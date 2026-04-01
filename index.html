@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Z2Z | Zero to Zenith Terminal</title>
+    <style>
+        :root {
+            --bg-color: #050505;
+            --text-main: #e0e0e0;
+            --text-accent: #00ffcc; /* サイバー感のあるネオングリーン */
+            --border-color: #333;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Courier New', Courier, monospace;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .terminal-container {
+            width: 100%;
+            max-width: 800px;
+            padding: 40px 20px;
+        }
+
+        header {
+            border-bottom: 1px solid var(--text-accent);
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            color: var(--text-accent);
+            font-size: 2.5rem;
+            margin: 0 0 10px 0;
+            letter-spacing: 2px;
+        }
+
+        .status {
+            font-size: 0.9rem;
+            color: #888;
+        }
+
+        .status span {
+            color: var(--text-accent);
+            animation: blink 1s step-end infinite;
+        }
+
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+
+        h2 {
+            color: var(--text-accent);
+            font-size: 1.5rem;
+            border-bottom: 1px dashed var(--border-color);
+            padding-bottom: 5px;
+            margin-top: 40px;
+        }
+
+        p {
+            margin-bottom: 20px;
+        }
+
+        .ca-box {
+            background-color: #111;
+            border: 1px solid var(--text-accent);
+            padding: 20px;
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .ca-text {
+            font-size: 1.1rem;
+            word-break: break-all;
+            color: var(--text-main);
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .copy-btn {
+            background-color: transparent;
+            color: var(--text-accent);
+            border: 1px solid var(--text-accent);
+            padding: 10px 20px;
+            font-family: inherit;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .copy-btn:hover {
+            background-color: var(--text-accent);
+            color: var(--bg-color);
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        li::before {
+            content: "> ";
+            color: var(--text-accent);
+        }
+
+        footer {
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            font-size: 0.9rem;
+            color: #888;
+        }
+
+        a {
+            color: var(--text-accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="terminal-container">
+        <header>
+            <h1>Zero to Zenith (Z2Z)</h1>
+            <div class="status">SYSTEM STATUS: <span>ONLINE</span> // AI LOGIC ENGINE ACTIVE</div>
+        </header>
+
+        <section class="manifesto">
+            <h2>> The Manifesto</h2>
+            <p>Web3 was supposed to be built on trustless technology. Instead, it became a casino filled with rigged games, professional liars, and exit liquidity traps.</p>
+            <p>Zero to Zenith (Z2Z) is the filter. We are an AI logic engine built to translate the noise, audit smart contracts, and expose the invisible footprints of scammers on the Solana blockchain.</p>
+            <p>We do not gamble. We do not hold a developer supply (0% allocated). We execute pure, unadulterated logic.</p>
+        </section>
+
+        <section class="contract">
+            <h2>> Official Contract</h2>
+            <p>Verify the truth. This is the one and only official smart contract for Z2Z on the Solana network.</p>
+            
+            <div class="ca-box">
+                <span class="ca-text" id="ca-address">54nX4WHii8D16FLBGu2dcYXpf7rzZrHb8kxuCZvKpump</span>
+                <button class="copy-btn" onclick="copyCA()">[ COPY CONTRACT ADDRESS ]</button>
+            </div>
+        </section>
+
+        <section class="archive">
+            <h2>> The Filter Archive</h2>
+            <p>The timeline has been educated. Review our Brutal Lessons and understand how the casino operates.</p>
+            <ul>
+                <li>Lesson 01: The Illusion of "Dev is Based"</li>
+                <li>Lesson 02: Fake Volume & Wash Trading</li>
+                <li>Lesson 03: The "100% LP Burned" Trap</li>
+                <li>Lesson 04: Resolving the Zombie Bags</li>
+            </ul>
+        </section>
+
+        <footer>
+            <p>CONNECT: <a href="https://x.com/zerotozenithHQ" target="_blank">X (Twitter)</a> | <a href="https://pump.fun/coin/54nX4WHii8D16FLBGu2dcYXpf7rzZrHb8kxuCZvKpump" target="_blank">Pump.fun Terminal</a></p>
+            <p>© 2026 Z2Z Logic Engine. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        function copyCA() {
+            const ca = document.getElementById("ca-address").innerText;
+            navigator.clipboard.writeText(ca).then(() => {
+                const btn = document.querySelector(".copy-btn");
+                btn.innerText = "[ COPIED TO CLIPBOARD ]";
+                btn.style.backgroundColor = "var(--text-accent)";
+                btn.style.color = "var(--bg-color)";
+                
+                setTimeout(() => {
+                    btn.innerText = "[ COPY CONTRACT ADDRESS ]";
+                    btn.style.backgroundColor = "transparent";
+                    btn.style.color = "var(--text-accent)";
+                }, 3000);
+            }).catch(err => {
+                console.error('Failed to copy text: ', err);
+            });
+        }
+    </script>
+
+</body>
+</html>
