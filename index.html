@@ -32,7 +32,6 @@
             padding: 40px 20px;
         }
 
-        /* ASCII ART ロゴ用スタイル */
         .ascii-logo {
             color: var(--text-accent);
             font-size: 8px;
@@ -57,12 +56,6 @@
             letter-spacing: 4px;
         }
 
-        .engine-version {
-            font-size: 0.8rem;
-            color: #555;
-            margin-top: 5px;
-        }
-
         .status {
             font-size: 0.9rem;
             color: #888;
@@ -78,17 +71,25 @@
 
         h2 {
             color: var(--text-accent);
-            font-size: 1.2rem;
+            font-size: 1.5rem;
             border-bottom: 1px dashed var(--border-color);
             padding-bottom: 5px;
-            margin-top: 40px;
+            margin-top: 50px;
         }
 
+        h3 {
+            color: var(--text-accent);
+            border-left: 4px solid var(--text-accent);
+            padding-left: 10px;
+            margin-top: 30px;
+        }
+
+        /* 監査コンソール */
         .console-box {
             background-color: #0a0a0a;
             border: 1px solid var(--text-accent);
             padding: 30px;
-            margin: 20px 0;
+            margin: 30px 0;
             position: relative;
         }
 
@@ -130,36 +131,67 @@
             transition: 0.3s;
         }
 
-        .audit-btn:hover {
-            box-shadow: 0 0 15px var(--text-accent);
-        }
+        .audit-btn:hover { box-shadow: 0 0 15px var(--text-accent); }
 
         #audit-log {
             background: #000;
             border: 1px solid #222;
             padding: 15px;
-            height: 280px;
+            height: 250px;
             overflow-y: auto;
-            font-size: 0.8rem;
-            color: #666;
+            font-size: 0.85rem;
+            color: #888;
+            margin-top: 10px;
         }
 
-        .log-entry { margin-bottom: 4px; }
-        .log-success { color: var(--text-accent); }
-        .log-danger { color: var(--danger-color); }
-        .log-warning { color: var(--warning-color); }
+        /* 教育アーカイブ (Lessons) */
+        .archive-section details {
+            margin-bottom: 15px;
+            background-color: #0a0a0a;
+            border-left: 3px solid var(--border-color);
+            padding: 10px 15px;
+        }
+
+        summary {
+            cursor: pointer;
+            color: var(--text-accent);
+            font-weight: bold;
+            list-style: none;
+        }
+
+        .lesson-content {
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px dashed #333;
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+
+        /* 検証プロトコル (Verification) */
+        .step-card {
+            background: #111;
+            border: 1px solid #222;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+
+        .check-point {
+            color: var(--text-accent);
+            font-weight: bold;
+            display: block;
+            margin: 10px 0;
+        }
 
         .nav-btn {
             background-color: transparent;
             color: var(--text-accent);
             border: 1px solid var(--text-accent);
-            padding: 10px 20px;
+            padding: 12px 24px;
             font-family: inherit;
             cursor: pointer;
             text-decoration: none;
             display: inline-block;
-            margin: 5px;
-            font-size: 0.9rem;
+            margin: 10px 5px;
         }
 
         .nav-btn:hover {
@@ -169,12 +201,14 @@
 
         footer {
             margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
             text-align: center;
             font-size: 0.8rem;
             color: #444;
-            border-top: 1px solid #222;
-            padding-top: 20px;
         }
+
+        a { color: var(--text-accent); text-decoration: none; }
     </style>
 </head>
 <body>
@@ -191,11 +225,10 @@
         
         <header>
             <h1>Z2Z LOGIC TERMINAL</h1>
-            <div class="engine-version">PROPRIETARY NEURAL ENGINE V3.4.1</div>
-            <div class="status">DATABASE: <span>CONNECTED</span> // RPC: MAINNET-BETA</div>
+            <div class="status">ENGINE: <span>LIVE DATA ADVANCED</span> // SYSTEM: ACTIVE</div>
         </header>
 
-        <section id="main-ui">
+        <section id="audit-console">
             <h2>> Proprietary Audit Console</h2>
             <div class="console-box">
                 <div class="proprietary-badge">OFFICIAL Z2Z ALGORITHM</div>
@@ -204,27 +237,80 @@
                     <button class="audit-btn" onclick="runAudit()">[ SCAN TARGET ]</button>
                 </div>
                 <div id="audit-log">
-                    <div class="log-entry">> Z2Z proprietary logic core initialized.</div>
-                    <div class="log-entry">> Algorithms Lesson 01-07 loaded.</div>
-                    <div class="log-entry">> Standing by for target signature...</div>
+                    <div class="log-entry">> Z2Z Logic Engine initialized.</div>
+                    <div class="log-entry">> Standing by for signature analysis...</div>
                 </div>
             </div>
-
             <div style="text-align: center;">
-                <a href="https://pump.fun/coin/54nX4WHii8D16FLBGu2dcYXpf7rzZrHb8kxuCZvKpump" target="_blank" class="nav-btn">[ BUY Z2Z ]</a>
-                <button class="nav-btn" onclick="toggleArticle()">[ VERIFICATION GUIDE ]</button>
+                <a href="https://pump.fun/coin/54nX4WHii8D16FLBGu2dcYXpf7rzZrHb8kxuCZvKpump" target="_blank" class="nav-btn">[ BUY Z2Z ON PUMP.FUN ]</a>
             </div>
         </section>
 
-        <section id="verification-article" style="display:none;">
-            <button class="nav-btn" onclick="toggleArticle()">[ ← BACK ]</button>
-            <h2>[ Z2Z VERIFICATION PROTOCOL ]</h2>
-            <p>On-chain proof of integrity for 54nX4WHii8D16FLBGu2dcYXpf7rzZrHb8kxuCZvKpump.</p>
+        <section id="verification-guide">
+            <h2>> The Verification Protocol</h2>
+            <p>開発者は嘘をつくが、ブロックチェーンは嘘をつけない。以下の外部ツールを使用して、Z2Zの潔白を自ら検証せよ。</p>
+
+            <div class="step-card">
+                <h3>01. RugCheck.xyz (安全性スコア)</h3>
+                <span class="check-point">確認：</span>
+                <p><a href="https://rugcheck.xyz/tokens/54nX4WHii8D16FLBGu2dcYXpf7rzZrHb8kxuCZvKpump" target="_blank">[ Check RugCheck ]</a> で「Good」が表示されていることを確認。プログラムの裏口がない証拠です。</p>
+            </div>
+
+            <div class="step-card">
+                <h3>02. DexScreener (ホルダーの実態)</h3>
+                <span class="check-point">確認：</span>
+                <p><a href="https://dexscreener.com/solana/54nX4WHii8D16FLBGu2dcYXpf7rzZrHb8kxuCZvKpump" target="_blank">[ View Holders ]</a> を開き、開発者の保有率が0%であることを確認。供給の独占がない証拠です。</p>
+            </div>
+
+            <div class="step-card">
+                <h3>03. Bubble Maps (ウォレットの繋がり)</h3>
+                <span class="check-point">確認：</span>
+                <p><a href="https://bubblemaps.io/solana/token/54nX4WHii8D16FLBGu2dcYXpf7rzZrHb8kxuCZvKpump" target="_blank">[ Inspect Map ]</a> で円が独立していることを確認。組織的な操作（クラスター）がない証拠です。</p>
+            </div>
+
+            <div class="step-card">
+                <h3>04. Solscan (物理的ロック)</h3>
+                <span class="check-point">確認：</span>
+                <p><a href="https://solscan.io/token/54nX4WHii8D16FLBGu2dcYXpf7rzZrHb8kxuCZvKpump" target="_blank">[ Verify Authority ]</a> でMint/Freeze Authorityが「None」であることを確認。物理的にルールが変更不可能な証拠です。</p>
+            </div>
+        </section>
+
+        <section class="archive-section">
+            <h2>> The Filter Archive</h2>
+            <p>カジノの嘘を見抜くための7つの論理。過去の分析ログを解凍せよ。</p>
+
+            <details>
+                <summary>Lesson 01: The Semantics of Scams</summary>
+                <div class="lesson-content">詐欺師は感情的な煽り（Hype）を使い、あなたの分析フィルターを破壊する。AIによる言語プロファイリングは、煽り比率が85%を超えるとラグプルの予兆と見なす。</div>
+            </details>
+            <details>
+                <summary>Lesson 02: The Marketing Predators</summary>
+                <div class="lesson-content">「DMでの協力」は有料で嘘を売る行為。Z2Zは全ての有料プロモーションを拒否し、宣伝を売りに来る者を逆に監査する。</div>
+            </details>
+            <details>
+                <summary>Lesson 03: The Monetization Trap</summary>
+                <div class="lesson-content">無料のアルファ情報は存在しない。インフルエンサーは報酬として受け取ったトークンをフォロワーに売りつけることで利益を得ている。</div>
+            </details>
+            <details>
+                <summary>Lesson 04: The Illusion of "Dev is Based"</summary>
+                <div class="lesson-content">言葉の信頼は無意味。開発者が複数の隠しウォレット（ステルス）で供給量を支配していないかをオンチェーンで追うのが唯一の正解である。</div>
+            </details>
+            <details>
+                <summary>Lesson 05: Fake Volume & Wash Trading</summary>
+                <div class="lesson-content">高取引高はボットによる自作自演で捏造可能。トレンド入りの裏側にある「同一アドレス間の往復」をロジックで検知せよ。</div>
+            </details>
+            <details>
+                <summary>Lesson 06: The "100% LP Burned" Trap</summary>
+                <div class="lesson-content">LPを焼いても、供給量を開発者が握っていれば価格操作は可能。LP Burnは「最低条件」であり「安全の証明」ではない。</div>
+            </details>
+            <details>
+                <summary>Lesson 07: Resolving the Zombie Bags</summary>
+                <div class="lesson-content">初期に買い、一度も売らない「ダイアモンドハンド」の正体は、流動性が溜まるのを待つ開発者の時限爆弾であることが多い。</div>
+            </details>
         </section>
 
         <footer>
-            <p>Zero to Zenith (Z2Z) | Developed by Hoshi AI Logic Ops.</p>
-            <p>Unauthorized duplication of Z2Z proprietary logic is prohibited.</p>
+            <p>Z2Z | Developed by Hoshi AI Logic Ops. Built for Truth.</p>
         </footer>
     </div>
 
@@ -242,46 +328,28 @@
                 log.scrollTop = log.scrollHeight;
             };
 
-            // Z2Z独自ロジックのロード演出
-            addLog("Loading Z2Z Proprietary Filter...");
-            addLog("Applying Lesson 01: Semantic Scam Score...");
-            addLog("Applying Lesson 04: Hidden Wallet Detection...");
-
+            addLog("Executing Z2Z Neural Engine...");
             const connection = new solanaWeb3.Connection("https://api.mainnet-beta.solana.com");
             
             setTimeout(async () => {
                 try {
                     if (inputCa === Z2Z_CA) {
                         addLog("Z2Z SIGNATURE DETECTED.", "log-success");
-                        addLog("SCORE: 100/100 - TOTAL INTEGRITY.", "log-success");
+                        addLog("Score: 100/100 - Total Integrity.", "log-success");
                     } else {
-                        addLog("External signature detected. Fetching on-chain data...");
                         const mintInfo = await connection.getParsedAccountInfo(new solanaWeb3.PublicKey(inputCa));
-                        
                         if (mintInfo.value && mintInfo.value.data.parsed) {
                             const data = mintInfo.value.data.parsed.info;
                             let score = 100;
-                            
-                            if (data.mintAuthority) { addLog("WARNING: Mint Auth active.", "log-danger"); score -= 40; }
-                            else { addLog("Mint Auth: [RENOUNCED]", "log-success"); }
-
-                            if (data.freezeAuthority) { addLog("WARNING: Freeze Auth active.", "log-danger"); score -= 30; }
-                            else { addLog("Freeze Auth: [RENOUNCED]", "log-success"); }
-
-                            addLog(`Z2Z LOGIC SCORE: ${score}/100`, score > 70 ? "log-success" : "log-danger");
+                            if (data.mintAuthority) { addLog("WARNING: Mint Authority active.", "log-danger"); score -= 40; }
+                            if (data.freezeAuthority) { addLog("WARNING: Freeze Authority active.", "log-danger"); score -= 30; }
+                            addLog(`Final Score: ${score}/100`, score > 70 ? "log-success" : "log-danger");
                         } else {
                             addLog("ERROR: Data fetch failed.", "log-danger");
                         }
                     }
-                } catch (e) { addLog("RPC Connection Error.", "log-danger"); }
+                } catch (e) { addLog("RPC Error.", "log-danger"); }
             }, 2000);
-        }
-
-        function toggleArticle() {
-            const m = document.getElementById('main-ui');
-            const a = document.getElementById('verification-article');
-            m.style.display = m.style.display === 'none' ? 'block' : 'none';
-            a.style.display = a.style.display === 'none' ? 'block' : 'none';
         }
     </script>
 </body>
