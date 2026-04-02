@@ -68,7 +68,6 @@
             margin-bottom: 20px;
         }
 
-        /* 技術スペック用スタイル */
         .specs-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -88,6 +87,20 @@
         .spec-label { color: #888; }
         .spec-value { color: var(--text-accent); font-weight: bold; float: right; }
 
+        /* 検証リンク用 */
+        .verification-links {
+            margin: 20px 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .verification-links li {
+            margin-bottom: 10px;
+            padding: 10px;
+            background: #111;
+            border-left: 3px solid var(--text-accent);
+        }
+
         .ca-box {
             background-color: #111;
             border: 1px solid var(--text-accent);
@@ -104,7 +117,7 @@
             display: block;
         }
 
-        .copy-btn {
+        .copy-btn, .action-btn {
             background-color: transparent;
             color: var(--text-accent);
             border: 1px solid var(--text-accent);
@@ -113,9 +126,11 @@
             font-size: 1rem;
             cursor: pointer;
             transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
         }
 
-        .copy-btn:hover {
+        .copy-btn:hover, .action-btn:hover {
             background-color: var(--text-accent);
             color: var(--bg-color);
         }
@@ -186,8 +201,18 @@
 
         <section class="manifesto">
             <h2>> The Manifesto</h2>
-            <p>Web3 was supposed to be built on trustless technology. Instead, it became a casino filled with rigged games, professional liars, and exit liquidity traps.</p>
-            <p>Zero to Zenith (Z2Z) is the filter. We are an AI logic engine built to translate the noise, audit smart contracts, and expose the invisible footprints of scammers on the Solana blockchain.</p>
+            <p>Web3 was supposed to be built on trustless technology. Z2Z is the filter. Audit everything. Trust nothing but on-chain math.</p>
+        </section>
+
+        <section class="verification">
+            <h2>> The Verification Protocol</h2>
+            <p>Don't trust our words. Verify the logic using these third-party tools.</p>
+            <ul class="verification-links">
+                <li><strong>1. Safety Score:</strong> <a href="https://rugcheck.xyz/tokens/54nX4WHii8D16FLBGu2dcYXpf7rzZrHb8kxuCZvKpump" target="_blank">[ Check RugCheck.xyz ]</a></li>
+                <li><strong>2. Real Holders:</strong> <a href="https://dexscreener.com/solana/54nX4WHii8D16FLBGu2dcYXpf7rzZrHb8kxuCZvKpump" target="_blank">[ View on DexScreener ]</a></li>
+                <li><strong>3. Network Audit:</strong> <a href="https://bubblemaps.io/solana/token/54nX4WHii8D16FLBGu2dcYXpf7rzZrHb8kxuCZvKpump" target="_blank">[ Inspect Bubble Maps ]</a></li>
+                <li><strong>4. Final Authority:</strong> <a href="https://solscan.io/token/54nX4WHii8D16FLBGu2dcYXpf7rzZrHb8kxuCZvKpump" target="_blank">[ Verify Contract on Solscan ]</a></li>
+            </ul>
         </section>
 
         <section class="integrity">
@@ -202,6 +227,14 @@
             </div>
         </section>
 
+        <section class="how-to-buy">
+            <h2>> How to Acquire Z2Z</h2>
+            <p>1. Prepare SOL in your Phantom Wallet.<br>
+               2. Navigate to the Pump.fun terminal.<br>
+               3. Swap SOL for Z2Z logic.</p>
+            <a href="https://pump.fun/coin/54nX4WHii8D16FLBGu2dcYXpf7rzZrHb8kxuCZvKpump" target="_blank" class="action-btn">[ ACCESS PUMP.FUN TERMINAL ]</a>
+        </section>
+
         <section class="contract">
             <h2>> Official Contract</h2>
             <div class="ca-box">
@@ -212,64 +245,23 @@
 
         <section class="archive">
             <h2>> The Filter Archive</h2>
-            <p>Access decrypted files below. 01 is the latest intel.</p>
-
             <details>
                 <summary>Lesson 01: The Semantics of Scams<span class="latest-badge">LATEST ENTRY</span></summary>
                 <div class="lesson-content">
-                    <p><strong>[ LOGIC OVERVIEW ]</strong> Scammers use "Emotional Triggers" to bypass your analytical filter.</p>
-                    <p>High hype ratios (LFG, Moon, Based) over 85% correlate with exit liquidity events. Scammers communicate in pulses to shut down logic. Cold logic is your only shield.</p>
+                    <p>Scammers use emotional triggers. AI scores posts on the ratio of "Hype" to "Fact". When noise rises, logic must get colder.</p>
                 </div>
             </details>
-
             <details>
                 <summary>Lesson 02: The Marketing Predators</summary>
                 <div class="lesson-content">
-                    <p><strong>[ LOGIC OVERVIEW ]</strong> "DM for collaboration" = "Pay me to lie."</p>
-                    <p>Bot accounts follow projects to sell fake hype. Z2Z rejects all paid shills. We audit those who try to sell us growth.</p>
+                    <p>"DM for collaboration" = Pay me to lie. Z2Z rejects all paid shills. We audit those who try to sell us growth.</p>
                 </div>
             </details>
-
-            <details>
-                <summary>Lesson 03: The Monetization Trap</summary>
-                <div class="lesson-content">
-                    <p><strong>[ LOGIC OVERVIEW ]</strong> Free alpha is the hook. You are the product.</p>
-                    <p>Influencers sell their followers to developers for free token allocations. Z2Z reverses this. Audit is the value, not the pump.</p>
-                </div>
-            </details>
-
-            <details>
-                <summary>Lesson 04: The Illusion of "Dev is Based"</summary>
-                <div class="lesson-content">
-                    <p>Developers build fake trust while holding 60% of supply in stealth wallets. Never trust words. Trust only on-chain math.</p>
-                </div>
-            </details>
-
-            <details>
-                <summary>Lesson 05: Fake Volume & Wash Trading</summary>
-                <div class="lesson-content">
-                    <p>Sniper bots buy/sell to create fake trending status. It's an illusion designed to trigger your FOMO.</p>
-                </div>
-            </details>
-
-            <details>
-                <summary>Lesson 06: The "100% LP Burned" Trap</summary>
-                <div class="lesson-content">
-                    <p>Burned LP means nothing if the dev holds the tokens. They don't rug the pool; they dump the supply. This is a "Soft Rug."</p>
-                </div>
-            </details>
-
-            <details>
-                <summary>Lesson 07: Resolving the Zombie Bags</summary>
-                <div class="lesson-content">
-                    <p>Early wallets that don't sell aren't "Diamond Hands." They are dev-controlled time bombs waiting for liquidity.</p>
-                </div>
-            </details>
-        </section>
+            </section>
 
         <footer>
-            <p>CONNECT: <a href="https://x.com/ZeroToZenith_HQ" target="_blank">X @ZeroToZenith_HQ</a> | <a href="https://pump.fun/coin/54nX4WHii8D16FLBGu2dcYXpf7rzZrHb8kxuCZvKpump" target="_blank">Pump.fun Terminal</a></p>
-            <p>© 2026 Z2Z Logic Engine. All rights reserved.</p>
+            <p>CONNECT: <a href="https://x.com/ZeroToZenith_HQ" target="_blank">X @ZeroToZenith_HQ</a></p>
+            <p>© 2026 Z2Z Logic Engine.</p>
         </footer>
     </div>
 
@@ -289,6 +281,5 @@
             });
         }
     </script>
-
 </body>
 </html>
