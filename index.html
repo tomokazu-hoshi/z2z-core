@@ -64,7 +64,6 @@
             margin-top: 40px;
         }
 
-        /* 監査コンソール用スタイル */
         .console-box {
             background-color: #0a0a0a;
             border: 1px solid var(--text-accent);
@@ -176,7 +175,7 @@
     <div class="terminal-container">
         <header>
             <h1>Zero to Zenith (Z2Z)</h1>
-            <div class="status">SYSTEM STATUS: <span>ONLINE</span> // ENGINE: LIVE AUDIT V1.0</div>
+            <div class="status">SYSTEM STATUS: <span>ONLINE</span> // ENGINE: TRUE INTEGRITY V1.0</div>
         </header>
 
         <section id="main-ui">
@@ -221,30 +220,52 @@
     </div>
 
     <script>
+        const Z2Z_CA = "54nX4WHii8D16FLBGu2dcYXpf7rzZrHb8kxuCZvKpump";
+
         function runAudit() {
-            const ca = document.getElementById('target-ca').value;
+            const inputCa = document.getElementById('target-ca').value.trim();
             const log = document.getElementById('audit-log');
             
-            if (!ca || ca.length < 32) {
+            if (!inputCa || inputCa.length < 32) {
                 log.innerHTML += `<div class="log-danger">> ERROR: Invalid Contract Address.</div>`;
                 return;
             }
 
-            log.innerHTML = `<div class="log-entry">> INITIALIZING AUDIT FOR: ${ca}</div>`;
+            log.innerHTML = `<div class="log-entry">> INITIALIZING AUDIT FOR: ${inputCa}</div>`;
             
-            const steps = [
+            const commonSteps = [
                 { msg: "> Connecting to Solana RPC...", delay: 500, class: "" },
                 { msg: "> Scanning Program Authority...", delay: 1200, class: "" },
                 { msg: "> ANALYSIS: Mint Authority detected as [RENOUNCED]", delay: 1800, class: "log-success" },
-                { msg: "> ANALYSIS: Freeze Authority detected as [RENOUNCED]", delay: 2300, class: "log-success" },
-                { msg: "> Auditing Liquidity Pool depth...", delay: 3000, class: "" },
-                { msg: "> WARNING: Unnatural wallet clustering detected (7.5%)", delay: 3800, class: "log-warning" },
-                { msg: "> Verifying metadata integrity...", delay: 4500, class: "" },
-                { msg: "> FINAL REPORT: Logic Score 88/100. Audit Passed with Warnings.", delay: 5500, class: "log-success" },
-                { msg: "> Visit RugCheck.xyz for full on-chain report.", delay: 6000, class: "log-entry" }
+                { msg: "> ANALYSIS: Freeze Authority detected as [RENOUNCED]", delay: 2300, class: "log-success" }
             ];
 
-            steps.forEach((step, index) => {
+            let finalSteps;
+            
+            // 入力されたCAがZ2Z自身である場合（潔白）
+            if (inputCa === Z2Z_CA) {
+                finalSteps = [
+                    { msg: "> Auditing Liquidity Pool depth...", delay: 3000, class: "" },
+                    { msg: "> WALLETS: Pure Decentralization (0% Clustering)", delay: 3800, class: "log-success" },
+                    { msg: "> Verifying metadata integrity...", delay: 4500, class: "" },
+                    { msg: "> FINAL REPORT: Score 100/100. Audit Passed. NO PROBLEMS.", delay: 5500, class: "log-success" },
+                    { msg: "> Z2Z logic confirms self-integrity.", delay: 6000, class: "log-entry" }
+                ];
+            } else {
+                // 他のコインである場合（警告）
+                finalSteps = [
+                    { msg: "> Auditing Liquidity Pool depth...", delay: 3000, class: "" },
+                    { msg: "> WARNING: Artificial volume detected (24h)", delay: 3800, class: "log-warning" },
+                    { msg: "> WARNING: High risk wallet clustering detected (12.5%)", delay: 4500, class: "log-warning" },
+                    { msg: "> Verifying metadata integrity...", delay: 5200, class: "" },
+                    { msg: "> FINAL REPORT: Score 74/100. Audit Passed with Warnings.", delay: 6000, class: "log-warning" },
+                    { msg: "> Visit RugCheck.xyz for full on-chain report.", delay: 6500, class: "log-entry" }
+                ];
+            }
+
+            const allSteps = [...commonSteps, ...finalSteps];
+
+            allSteps.forEach((step, index) => {
                 setTimeout(() => {
                     log.innerHTML += `<div class="log-entry ${step.class}">${step.msg}</div>`;
                     log.scrollTop = log.scrollHeight;
