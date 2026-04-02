@@ -10,6 +10,7 @@
             --text-main: #e0e0e0;
             --text-accent: #00ffcc; 
             --border-color: #333;
+            --danger-color: #ff4444;
         }
 
         body {
@@ -25,7 +26,7 @@
 
         .terminal-container {
             width: 100%;
-            max-width: 800px;
+            max-width: 900px;
             padding: 40px 20px;
         }
 
@@ -52,9 +53,7 @@
             animation: blink 1s step-end infinite;
         }
 
-        @keyframes blink {
-            50% { opacity: 0; }
-        }
+        @keyframes blink { 50% { opacity: 0; } }
 
         h2 {
             color: var(--text-accent);
@@ -64,41 +63,11 @@
             margin-top: 40px;
         }
 
-        p {
-            margin-bottom: 20px;
-        }
-
-        .specs-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            margin: 20px 0;
-            border: 1px solid #222;
-            padding: 15px;
-            background: #080808;
-        }
-
-        .spec-item {
-            font-size: 0.85rem;
-            border-bottom: 1px solid #111;
-            padding: 5px 0;
-        }
-
-        .spec-label { color: #888; }
-        .spec-value { color: var(--text-accent); font-weight: bold; float: right; }
-
-        /* 検証リンク用 */
-        .verification-links {
-            margin: 20px 0;
-            padding: 0;
-            list-style: none;
-        }
-
-        .verification-links li {
-            margin-bottom: 10px;
-            padding: 10px;
-            background: #111;
-            border-left: 3px solid var(--text-accent);
+        h3 {
+            color: var(--text-accent);
+            border-left: 4px solid var(--text-accent);
+            padding-left: 10px;
+            margin-top: 30px;
         }
 
         .ca-box {
@@ -117,65 +86,65 @@
             display: block;
         }
 
-        .copy-btn, .action-btn {
+        .copy-btn, .nav-btn {
             background-color: transparent;
             color: var(--text-accent);
             border: 1px solid var(--text-accent);
-            padding: 10px 20px;
+            padding: 12px 24px;
             font-family: inherit;
             font-size: 1rem;
             cursor: pointer;
             transition: all 0.3s ease;
             text-decoration: none;
             display: inline-block;
+            margin: 5px;
         }
 
-        .copy-btn:hover, .action-btn:hover {
+        .copy-btn:hover, .nav-btn:hover {
             background-color: var(--text-accent);
             color: var(--bg-color);
+            box-shadow: 0 0 15px var(--text-accent);
         }
 
-        details {
-            margin-bottom: 15px;
-            background-color: #0a0a0a;
-            border-left: 3px solid var(--border-color);
-            padding: 10px 15px;
-            transition: border-color 0.3s ease;
+        /* 記事セクションの表示制御 */
+        #verification-article {
+            display: none;
+            background: #080808;
+            padding: 30px;
+            border: 1px solid #222;
+            margin-top: 20px;
         }
 
-        details:hover {
-            border-left: 3px solid var(--text-accent);
+        .step-card {
+            background: #111;
+            border: 1px solid #222;
+            padding: 20px;
+            margin-bottom: 25px;
         }
 
-        summary {
-            cursor: pointer;
+        .step-number {
+            color: var(--bg-color);
+            background: var(--text-accent);
+            padding: 2px 8px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .check-point {
             color: var(--text-accent);
             font-weight: bold;
-            font-size: 1.1rem;
-            outline: none;
-            list-style: none;
+            display: block;
+            margin: 10px 0;
+            padding: 5px;
+            border-left: 2px solid var(--text-accent);
         }
 
-        summary::-webkit-details-marker { display: none; }
-        summary::before { content: "[ + ] "; color: #888; }
-        details[open] summary::before { content: "[ - ] "; color: var(--text-accent); }
-
-        .lesson-content {
-            margin-top: 15px;
-            padding-top: 10px;
-            border-top: 1px dashed #333;
-            font-size: 0.95rem;
-            color: #ccc;
-        }
-
-        .latest-badge {
-            background-color: var(--text-accent);
-            color: var(--bg-color);
-            padding: 2px 6px;
-            font-size: 0.7rem;
-            font-weight: bold;
-            margin-left: 10px;
-            vertical-align: middle;
+        .danger-box {
+            border: 1px solid var(--danger-color);
+            padding: 15px;
+            color: var(--danger-color);
+            margin-top: 10px;
+            font-size: 0.9rem;
         }
 
         footer {
@@ -188,7 +157,6 @@
         }
 
         a { color: var(--text-accent); text-decoration: none; }
-        a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
@@ -196,85 +164,137 @@
     <div class="terminal-container">
         <header>
             <h1>Zero to Zenith (Z2Z)</h1>
-            <div class="status">SYSTEM STATUS: <span>ONLINE</span> // AI LOGIC ENGINE ACTIVE</div>
+            <div class="status">SYSTEM STATUS: <span>ONLINE</span> // DATA INTEGRITY VERIFIED</div>
         </header>
 
-        <section class="manifesto">
-            <h2>> The Manifesto</h2>
-            <p>Web3 was supposed to be built on trustless technology. Z2Z is the filter. Audit everything. Trust nothing but on-chain math.</p>
-        </section>
-
-        <section class="verification">
-            <h2>> The Verification Protocol</h2>
-            <p>Don't trust our words. Verify the logic using these third-party tools.</p>
-            <ul class="verification-links">
-                <li><strong>1. Safety Score:</strong> <a href="https://rugcheck.xyz/tokens/54nX4WHii8D16FLBGu2dcYXpf7rzZrHb8kxuCZvKpump" target="_blank">[ Check RugCheck.xyz ]</a></li>
-                <li><strong>2. Real Holders:</strong> <a href="https://dexscreener.com/solana/54nX4WHii8D16FLBGu2dcYXpf7rzZrHb8kxuCZvKpump" target="_blank">[ View on DexScreener ]</a></li>
-                <li><strong>3. Network Audit:</strong> <a href="https://bubblemaps.io/solana/token/54nX4WHii8D16FLBGu2dcYXpf7rzZrHb8kxuCZvKpump" target="_blank">[ Inspect Bubble Maps ]</a></li>
-                <li><strong>4. Final Authority:</strong> <a href="https://solscan.io/token/54nX4WHii8D16FLBGu2dcYXpf7rzZrHb8kxuCZvKpump" target="_blank">[ Verify Contract on Solscan ]</a></li>
-            </ul>
-        </section>
-
-        <section class="integrity">
-            <h2>> Technical Integrity</h2>
-            <div class="specs-grid">
-                <div class="spec-item"><span class="spec-label">Total Supply:</span> <span class="spec-value">1,000,000,000</span></div>
-                <div class="spec-item"><span class="spec-label">Honey Pot:</span> <span class="spec-value">NO (Audit Passed)</span></div>
-                <div class="spec-item"><span class="spec-label">Mint Auth:</span> <span class="spec-value">RENOUNCED</span></div>
-                <div class="spec-item"><span class="spec-label">Freeze Auth:</span> <span class="spec-value">RENOUNCED</span></div>
-                <div class="spec-item"><span class="spec-label">Dev Allocation:</span> <span class="spec-value">0%</span></div>
-                <div class="spec-item"><span class="spec-label">Tax:</span> <span class="spec-value">0%</span></div>
+        <section id="main-ui">
+            <h2>> Terminal Main</h2>
+            <p>Welcome to the Z2Z Logic Engine. We provide 100% transparency through on-chain verification. Do not trust our words. Trust the protocol.</p>
+            
+            <div style="text-align: center; margin: 40px 0;">
+                <button class="nav-btn" onclick="toggleArticle()">[ ACCESS FULL VERIFICATION GUIDE ]</button>
+                <a href="https://pump.fun/coin/54nX4WHii8D16FLBGu2dcYXpf7rzZrHb8kxuCZvKpump" target="_blank" class="nav-btn">[ BUY Z2Z ON PUMP.FUN ]</a>
             </div>
-        </section>
 
-        <section class="how-to-buy">
-            <h2>> How to Acquire Z2Z</h2>
-            <p>1. Prepare SOL in your Phantom Wallet.<br>
-               2. Navigate to the Pump.fun terminal.<br>
-               3. Swap SOL for Z2Z logic.</p>
-            <a href="https://pump.fun/coin/54nX4WHii8D16FLBGu2dcYXpf7rzZrHb8kxuCZvKpump" target="_blank" class="action-btn">[ ACCESS PUMP.FUN TERMINAL ]</a>
-        </section>
-
-        <section class="contract">
-            <h2>> Official Contract</h2>
             <div class="ca-box">
                 <span class="ca-text" id="ca-address">54nX4WHii8D16FLBGu2dcYXpf7rzZrHb8kxuCZvKpump</span>
                 <button class="copy-btn" onclick="copyCA()">[ COPY CONTRACT ADDRESS ]</button>
             </div>
         </section>
 
-        <section class="archive">
-            <h2>> The Filter Archive</h2>
-            <details>
-                <summary>Lesson 01: The Semantics of Scams<span class="latest-badge">LATEST ENTRY</span></summary>
-                <div class="lesson-content">
-                    <p>Scammers use emotional triggers. AI scores posts on the ratio of "Hype" to "Fact". When noise rises, logic must get colder.</p>
+        <section id="verification-article">
+            <button class="nav-btn" onclick="toggleArticle()" style="font-size: 0.8rem;">[ ← BACK TO MAIN ]</button>
+            
+            <h2>[ SYSTEM DEEP-DIVE: VERIFICATION PROTOCOL ]</h2>
+            <p>「開発者は嘘をつくが、ブロックチェーンは嘘をつけない」<br>
+            このガイドは、Z2Zの潔白を数学的に証明し、詐欺師の手口を無力化するための全手順を記した聖書である。</p>
+
+            <div class="step-card">
+                <h3><span class="step-number">01</span> RugCheck.xyz による健康診断</h3>
+                <p>まずは、プログラムの外部監査を行います。RugCheckは、スマートコントラクトに潜む「裏口」を自動検知するツールです。</p>
+                <span class="check-point">手順：</span>
+                <ol>
+                    <li><a href="https://rugcheck.xyz/" target="_blank">RugCheck.xyz</a> にアクセス。</li>
+                    <li>Z2Zのコントラクトアドレスを貼り付けて検索。</li>
+                </ol>
+                <span class="check-point">ここを確認：</span>
+                <p>画面中央に大きく<strong>「Good」</strong>と表示されていれば合格。プログラム的にあなたの資金をロックする仕掛けがないことを意味します。</p>
+            </div>
+
+            <div class="step-card">
+                <h3><span class="step-number">02</span> DexScreener でホルダーの実態を暴く</h3>
+                <p>開発者が「1枚も持っていない」という宣言が嘘でないか、財布の中身を覗き見ます。</p>
+                <span class="check-point">手順：</span>
+                <ol>
+                    <li><a href="https://dexscreener.com/solana/54nX4WHii8D16FLBGu2dcYXpf7rzZrHb8kxuCZvKpump" target="_blank">DexScreener</a> を開く。</li>
+                    <li>画面右側（または詳細ボタン）の<strong>「Holders」</strong>タブをクリック。</li>
+                </ol>
+                <span class="check-point">ここを確認：</span>
+                <p>上位ホルダーのリストを見てください。発行元（CEO）のアドレスが保有率0%であることを確認してください。市場のコインはすべて、あなたと同じ一般投資家の手にあります。</p>
+            </div>
+
+            <div class="step-card">
+                <h3><span class="step-number">03</span> Bubble Maps で「組織的詐欺」を可視化</h3>
+                <p>詐欺師はコインを何十個もの財布に分散させますが、送金履歴（糸）は消せません。</p>
+                <span class="check-point">手順：</span>
+                <ol>
+                    <li><a href="https://bubblemaps.io/solana/token/54nX4WHii8D16FLBGu2dcYXpf7rzZrHb8kxuCZvKpump" target="_blank">Bubble Maps</a> でZ2Zを検索。</li>
+                </ol>
+                <span class="check-point">ここを確認：</span>
+                <p>表示された円（財布）が、それぞれ孤立していれば正常です。<strong>もし複数の円が線で繋がっていたら、それは一人の人間が操作している証拠。</strong>Z2Zのマップには、そのような汚い繋がりは一切存在しません。</p>
+            </div>
+
+            <div class="step-card">
+                <h3><span class="step-number">04</span> 【最重要】Solscan で「物理的ロック」を確認</h3>
+                <p>開発者が後からルールを書き換えられない「物理的な証拠」を、ブロックチェーンの生データから直接見ます。</p>
+                <span class="check-point">手順：</span>
+                <ol>
+                    <li><a href="https://solscan.io/token/54nX4WHii8D16FLBGu2dcYXpf7rzZrHb8kxuCZvKpump" target="_blank">Solscan</a> でZ2Zを検索。</li>
+                    <li>「Authority」または「Token Manager」の項目を探す。</li>
+                </ol>
+                <span class="check-point">ここを確認：</span>
+                <p><strong>Mint Authority: None</strong> / <strong>Freeze Authority: None</strong><br>
+                この「None（なし）」こそが、たとえ神であってもコインを増やしたり、あなたの取引を止めたりできないことを意味する物理的なロックです。</p>
+            </div>
+
+            <div class="step-card">
+                <h3><span class="step-number">05</span> 比較：死んだトークンとZ2Zの違い</h3>
+                <p>お手元にある「売れなくなったトークン」や「暴落したゴミコイン」を、上記のツールで検索してみてください。</p>
+                <div class="danger-box">
+                    ・RugCheckで「Danger」判定が出る<br>
+                    ・Bubble Mapsで巨大なクモの巣のような繋がりが見える<br>
+                    ・Solscanで開発者がMint権限を保持したままになっている
                 </div>
-            </details>
-            <details>
-                <summary>Lesson 02: The Marketing Predators</summary>
-                <div class="lesson-content">
-                    <p>"DM for collaboration" = Pay me to lie. Z2Z rejects all paid shills. We audit those who try to sell us growth.</p>
-                </div>
-            </details>
-            </section>
+                <p>それらとZ2Zを比較すれば、どちらが「カジノの監視者」として作られたか、ロジックで理解できるはずです。</p>
+            </div>
+
+            <div class="step-card">
+                <h3><span class="step-number">06</span> Z2Zトークンの安全な入手方法</h3>
+                <p>ロジックに納得したら、頂点（Zenith）へ参加してください。</p>
+                <ol>
+                    <li><strong>Phantomウォレット</strong>を準備し、SOLを入金。</li>
+                    <li>公式の <a href="https://pump.fun/coin/54nX4WHii8D16FLBGu2dcYXpf7rzZrHb8kxuCZvKpump" target="_blank">Pump.fun Terminal</a> にアクセス。</li>
+                    <li>「Buy」セクションで、必要なSOLをZ2Zに交換（Swap）します。</li>
+                </ol>
+                <p>※手数料を最小限に抑えるため、Pump.fun公式以外のリンクは踏まないでください。</p>
+            </div>
+
+            <div style="text-align: center; margin-top: 40px;">
+                <button class="nav-btn" onclick="toggleArticle()">[ GUIDE CLOSED - RETURN TO TERMINAL ]</button>
+            </div>
+        </section>
 
         <footer>
             <p>CONNECT: <a href="https://x.com/ZeroToZenith_HQ" target="_blank">X @ZeroToZenith_HQ</a></p>
-            <p>© 2026 Z2Z Logic Engine.</p>
+            <p>© 2026 Z2Z Logic Engine. Built for Truth.</p>
         </footer>
     </div>
 
     <script>
+        function toggleArticle() {
+            const main = document.getElementById('main-ui');
+            const article = document.getElementById('verification-article');
+            if (article.style.display === 'none' || article.style.display === '') {
+                main.style.display = 'none';
+                article.style.display = 'block';
+                window.scrollTo(0, 0);
+            } else {
+                main.style.display = 'block';
+                article.style.display = 'none';
+                window.scrollTo(0, 0);
+            }
+        }
+
         function copyCA() {
             const ca = document.getElementById("ca-address").innerText;
             navigator.clipboard.writeText(ca).then(() => {
                 const btn = document.querySelector(".copy-btn");
+                const originalText = btn.innerText;
                 btn.innerText = "[ COPIED ]";
                 btn.style.backgroundColor = "var(--text-accent)";
                 btn.style.color = "var(--bg-color)";
                 setTimeout(() => {
-                    btn.innerText = "[ COPY CONTRACT ADDRESS ]";
+                    btn.innerText = originalText;
                     btn.style.backgroundColor = "transparent";
                     btn.style.color = "var(--text-accent)";
                 }, 3000);
