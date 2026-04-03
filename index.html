@@ -69,6 +69,32 @@
 
         @keyframes blink { 50% { opacity: 0; } }
 
+        /* コントラクトアドレス表示エリア */
+        .ca-display-box {
+            background-color: #0a0a0a;
+            border: 1px solid var(--border-color);
+            padding: 15px;
+            margin-bottom: 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        .ca-label {
+            font-size: 0.7rem;
+            color: #666;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .ca-value {
+            font-size: 0.9rem;
+            color: var(--text-accent);
+            word-break: break-all;
+            display: block;
+            margin-bottom: 10px;
+        }
+
         h2 {
             color: var(--text-accent);
             font-size: 1.5rem;
@@ -120,18 +146,18 @@
             outline: none;
         }
 
-        .audit-btn {
+        .audit-btn, .copy-btn {
             background: var(--text-accent);
             color: var(--bg-color);
             border: none;
-            padding: 12px 24px;
+            padding: 10px 20px;
             font-family: inherit;
             font-weight: bold;
             cursor: pointer;
             transition: 0.3s;
         }
 
-        .audit-btn:hover { box-shadow: 0 0 15px var(--text-accent); }
+        .audit-btn:hover, .copy-btn:hover { box-shadow: 0 0 15px var(--text-accent); }
 
         #audit-log {
             background: #000;
@@ -221,6 +247,12 @@
   ███╔╝  ██╔═══╝  ███╔╝  
  ███████╗███████╗███████╗
  ╚══════╝╚══════╝╚══════╝
+        </div>
+
+        <div class="ca-display-box">
+            <span class="ca-label">Official Z2Z Contract Address</span>
+            <span class="ca-value" id="z2z-ca-value">54nX4WHii8D16FLBGu2dcYXpf7rzZrHb8kxuCZvKpump</span>
+            <button class="copy-btn" onclick="copyCA()">[ COPY ADDRESS ]</button>
         </div>
         
         <header>
@@ -316,6 +348,17 @@
 
     <script>
         const Z2Z_CA = "54nX4WHii8D16FLBGu2dcYXpf7rzZrHb8kxuCZvKpump";
+
+        function copyCA() {
+            const ca = document.getElementById("z2z-ca-value").innerText;
+            navigator.clipboard.writeText(ca).then(() => {
+                const btn = document.querySelector(".copy-btn");
+                btn.innerText = "[ COPIED! ]";
+                setTimeout(() => {
+                    btn.innerText = "[ COPY ADDRESS ]";
+                }, 2000);
+            });
+        }
 
         async function runAudit() {
             const inputCa = document.getElementById('target-ca').value.trim();
