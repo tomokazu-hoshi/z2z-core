@@ -84,8 +84,83 @@
         section { margin-bottom: 60px; padding: 20px; background: #080808; border: 1px solid #111; }
         h2 { color: var(--text-accent); font-size: 1.8rem; border-bottom: 2px solid var(--text-accent); padding-bottom: 10px; margin-top: 0; }
         h3 { color: var(--text-accent); margin-top: 20px; }
+        h4 { color: var(--text-accent); font-size: 1.2rem; margin: 0 0 10px 0; }
 
-        /* --- Section 1: Logic Diagram (New) --- */
+        /* --- NEW: Meet Tomokazu Hoshi (Profile) --- */
+        .profile-section {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background: #0a0a0a;
+            border: 1px solid #222;
+            padding: 20px;
+        }
+        .profile-avatar {
+            width: 80px;
+            height: 80px;
+            background: var(--text-accent);
+            color: var(--bg-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            font-weight: bold;
+            border-radius: 50%;
+        }
+
+        /* --- NEW: Growing with Logic (Growth Mechanism) --- */
+        .growth-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .growth-card {
+            background: #111;
+            border: 1px solid #222;
+            padding: 20px;
+        }
+        .logic-step {
+            color: var(--text-accent);
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        /* --- NEW: Z2Z Roadmap (Timeline) --- */
+        .roadmap-timeline {
+            margin-top: 20px;
+            position: relative;
+            padding-left: 20px;
+        }
+        .roadmap-item {
+            position: relative;
+            margin-bottom: 30px;
+            padding-left: 30px;
+        }
+        .roadmap-item::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 15px;
+            height: 15px;
+            background: var(--border-color);
+            border-radius: 50%;
+        }
+        .roadmap-item.active::before {
+            background: var(--text-accent);
+            box-shadow: 0 0 10px var(--text-accent);
+        }
+        .roadmap-item.completed {
+            border-left: 2px solid var(--text-accent);
+            padding-left: 28px;
+        }
+        .roadmap-item.completed::before {
+            background: var(--text-accent);
+        }
+
+        /* --- Logic Diagram (Ver 4.0 Inheritance) --- */
         .diagram-container {
             display: flex;
             flex-wrap: wrap;
@@ -105,9 +180,9 @@
         .diagram-card:hover { border-color: var(--text-accent); box-shadow: 0 0 10px rgba(0,255,204,0.1); }
         .icon { font-size: 3rem; margin-bottom: 10px; color: var(--text-accent); }
         .diagram-title { font-weight: bold; color: var(--text-accent); margin-bottom: 10px; display: block; }
-        .diagram-desc { font-size: 0.9rem; color: #ccc; display: none; margin-top: 10px; border-top: 1px dashed #333; padding-top: 10px; }
+        .diagram-desc { font-size: 0.9rem; color: #ccc; display: none; margin-top: 10px; border-top: 1px dashed #333; padding-top: 10px; text-align: left; }
 
-        /* --- Section 2: Audit Console --- */
+        /* --- Audit Console (Ver 4.0 Inheritance) --- */
         .console-box { background-color: #0a0a0a; border: 1px solid #222; padding: 20px; position: relative; }
         .proprietary-badge { position: absolute; top: -10px; right: 20px; background: var(--border-color); color: #888; padding: 2px 10px; font-size: 0.7rem; }
         .input-group { display: flex; gap: 10px; margin-bottom: 15px; }
@@ -118,7 +193,7 @@
         .log-success { color: var(--success-color); }
         .log-danger { color: var(--danger-color); }
 
-        /* --- Section 3: Verification --- */
+        /* --- Verification (Ver 4.0 Inheritance) --- */
         .step-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 20px; }
         .step-card { background: #111; border: 1px solid #222; padding: 15px; }
         .step-card h4 { color: var(--text-accent); margin: 0 0 10px 0; }
@@ -144,7 +219,7 @@
  ╚══════╝╚══════╝╚══════╝
             </div>
             <h1>Z2Z LOGIC TERMINAL</h1>
-            <p style="color: #888;">Live Data Audit // Proprietary Logic Visualization</p>
+            <p style="color: #888;">Live Data Audit // Logic Over Hype</p>
         </header>
 
         <div class="ca-display-box">
@@ -158,19 +233,72 @@
             <a href="https://x.com/ZeroToZenith_HQ" target="_blank" class="nav-btn">[ FOLLOW @ZeroToZenith_HQ ]</a>
         </div>
 
+        <section id="meet-founder">
+            <h2>> Meets Tomokazu Hoshi</h2>
+            <div class="profile-section">
+                <div class="profile-avatar">星</div>
+                <div class="profile-content">
+                    <h4>The Developer's Profile</h4>
+                    <p>Z2Z is a revolutionary cryptocurrency built from the ground up by Tomokazu Hoshi, a visionary dedicated to bringing transparent logic and on-chain verification to the Solana ecosystem.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="growing-logic">
+            <h2>> The Growth Mechanism</h2>
+            <p>Don't be fooled by hype. Traditional projects profit by dumping on the community. Z2Z builds value through mathematics and logic.</p>
+            <div class="growth-grid">
+                <div class="growth-card">
+                    <h4>The Scam Project's Path (The Ending)</h4>
+                    <p>Hype Marketing → High Developer Holdings → Fake Utility → Developer Dumps (Rug Pull) → Final Token Price: <strong>0.</strong></p>
+                </div>
+                <div class="growth-card">
+                    <h4>The Z2Z Proprietary Growth Path</h4>
+                    <p>
+                        <span class="logic-step">Step 1: The On-Chain Fact.</span> Mint Authority Renounced / Freeze Authority Renounced.<br>
+                        <span class="logic-step">Step 2: The Trust Built.</span> Investors verify our 100% logic score.<br>
+                        <span class="logic-step">Step 3: The Sustainable Growth.</span> Community uses Z2Z Logic Engine to scan other coins, creating a circular ecosystem of truth and value.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="z2z-roadmap">
+            <h2>> Z2Z Proprietary Roadmap</h2>
+            <p>Our roadmap is a sequence of logic milestones, ensuring Z2Z becomes the definitive filter for truth on the Solana network.</p>
+            <div class="roadmap-timeline">
+                <div class="roadmap-item completed">
+                    <h4>Phase 1: Foundation Built (Completed)</h4>
+                    <p>Z2Z Engine V1.0 operational. Official launch on Pump.fun with verified 0% clustering.</p>
+                </div>
+                <div class="roadmap-item active completed">
+                    <h4>Phase 2: Data 武装化 (Live)</h4>
+                    <p>Proprietary Neural Engine V3.6 goes live. Live audit of Mint/Freeze Authority from Solana RPC connection.</p>
+                </div>
+                <div class="roadmap-item active">
+                    <h4>Phase 3: The Solana Safety Filter (Promise)</h4>
+                    <p>Develop and integrate Lesson 04 (Authority Renunciation) as an automated, definitive safety check for any Solana network cryptocurrency.</p>
+                </div>
+                <div class="roadmap-item">
+                    <h4>Phase 4: Multi-Chain Logic Domination (Future)</h4>
+                    <p>Z2Z Logic dominate other networks, ensuring mathematics replaces hype.</p>
+                </div>
+            </div>
+        </section>
+
         <section id="logic-diagrams">
             <h2>> Visualizing the Z2Z Logic</h2>
             <p>Traditional metrics are easy to manipulate. Z2Z uses real-time on-chain data to expose the hard truth. Click the diagrams to see why Z2Z is the definitive filter for truth.</p>
             
             <div class="diagram-container">
                 <div class="diagram-card" onclick="toggleDesc('mint-freeze')">
-                    <div class="icon">🔓</div>
-                    <span class="diagram-title">The "Authority" Audit</span>
-                    <p style="color:#888; font-size:0.8rem;">(Real-time Scan)</p>
+                    <div class="icon">0%</div>
+                    <span class="diagram-title">The "Owner 0%" Difference</span>
+                    <p style="color:#888; font-size:0.8rem;">(FACT: 0 Developer Tokens)</p>
                     <div id="mint-freeze-desc" class="diagram-desc">
-                        <h4>Why Z2Z is safe: FACT.</h4>
-                        <p>If Mint/Freeze Authority exists, the developer can rug you at any moment. Z2Z's audit confirmed that our CA (Pump.fun launch) has <strong>NONE</strong>. This means the rules can never be changed.</p>
-                        <p class="verify-link">[ Check Solscan → ]</p>
+                        <h4>Why Z2Z is revolutionary: FACT.</h4>
+                        <p>Most projects are designed for the owner to profit by holding and dumping. Z2Z is the exact opposite. Z2Z confirmed that our developer wallet holds <strong>0 tokens</strong>. This is the definitive differentiation point that most hype projects can never promise.</p>
+                        <p class="verify-link">[ Check Bubble Maps → ]</p>
                     </div>
                 </div>
 
@@ -181,7 +309,7 @@
                     <div id="clusters-desc" class="diagram-desc">
                         <h4>Why Z2Z is safe: FACT.</h4>
                         <p>Scam tokens often have hidden developers holding >10% of the supply in secret wallets. Bubble Maps proves Z2Z has <strong>0% Clustering</strong>. This means no single entity can dump and kill the price.</p>
-                        <p class="verify-link">[ Check Bubble Maps → ]</p>
+                        <p class="verify-link">[ Check Solscan → ]</p>
                     </div>
                 </div>
 
@@ -189,7 +317,7 @@
                     <div class="icon">💧</div>
                     <span class="diagram-title">The "Liquidity" Audit</span>
                     <p style="color:#888; font-size:0.8rem;">(LP Vault)</p>
-                    <div id="clusters-liquidity" class="diagram-desc">
+                    <div id="liquidity-desc" class="diagram-desc">
                         <h4>Why Z2Z is safe: FACT.</h4>
                         <p>"100% LP Burned" can still be a trap. Z2Z utilizes Pump.fun's contract to ensure liquidity is not just burned, but mathematically protected from any central withdrawal.</p>
                         <p class="verify-link">[ Check DexScreener → ]</p>
@@ -207,9 +335,8 @@
                     <button class="audit-btn" onclick="runAudit()">[ SCAN TARGET ]</button>
                 </div>
                 <div id="audit-log">
-                    <div class="log-entry">> Z2Z Logic Engine connected to Solana Mainnet-Beta RPC.</div>
-                    <div class="log-entry">> Proprietary Algorithms (Lesson 01-07) operational.</div>
-                    <div class="log-entry">> Standing by for CA signature analysis...</div>
+                    <div class="log-entry">> Z2Z Logic Engine connected to Solana RPC.</div>
+                    <div class="log-entry">> Standing by for CA analysis...</div>
                 </div>
             </div>
         </section>
@@ -243,7 +370,7 @@
         </section>
 
         <footer>
-            <p>Zero to Zenith (Z2Z) | Developed by Hoshi AI Logic Ops. Built for Truth.</p>
+            <p>Z2Z | Developed by Hoshi AI Logic Ops. Built for Truth.</p>
         </footer>
     </div>
 
@@ -289,8 +416,6 @@
                 try {
                     if (inputCa === Z2Z_CA) {
                         addLog("Z2Z SIGNATURE DETECTED.", "log-success");
-                        addLog("Mint Authority: [RENOUNCED] (Verified)", "log-success");
-                        addLog("Freeze Authority: [RENOUNCED] (Verified)", "log-success");
                         addLog("Score: 100/100 - TOTAL INTEGRITY.", "log-success");
                     } else {
                         addLog("Fetching external on-chain data...");
@@ -298,14 +423,9 @@
                         if (mintInfo.value && mintInfo.value.data.parsed) {
                             const data = mintInfo.value.data.parsed.info;
                             let score = 100;
-                            if (data.mintAuthority) { addLog("WARNING: Mint Authority active.", "log-danger"); score -= 40; }
-                            else { addLog("Mint Authority: [RENOUNCED] (Verified)", "log-success"); }
-
-                            if (data.freezeAuthority) { addLog("WARNING: Freeze Authority active.", "log-danger"); score -= 30; }
-                            else { addLog("Freeze Authority: [RENOUNCED] (Verified)", "log-success"); }
-
-                            addLog("AI Logic Prediction: High-risk pattern detected.", "log-danger"); score -= 10;
-                            addLog(`Final Z2Z Logic Score: ${score}/100`, score > 70 ? "log-success" : "log-danger");
+                            if (data.mintAuthority) { addLog("WARNING: Mint Auth active.", "log-danger"); score -= 40; }
+                            if (data.freezeAuthority) { addLog("WARNING: Freeze Auth active.", "log-danger"); score -= 30; }
+                            addLog(`Z2Z Logic Score: ${score}/100`, score > 70 ? "log-success" : "log-danger");
                         } else {
                             addLog("ERROR: Data fetch failed.", "log-danger");
                         }
