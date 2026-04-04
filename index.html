@@ -106,6 +106,28 @@
         h3 { color: var(--text-accent); margin-top: 20px; }
         h4 { color: var(--text-accent); font-size: 1.2rem; margin: 0 0 10px 0; }
 
+        /* --- Verified Trust Protocol --- */
+        #verified-trust { background: #0a0a0a; border: 1px solid var(--text-accent); padding: 30px 20px; }
+        #verified-trust h2 { text-align: center; border-bottom: none; font-size: 2.2rem; }
+        .drops-locks-headers {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--danger-color);
+        }
+        .trust-explanation {
+            margin-top: 20px;
+            color: #ccc;
+            font-size: 0.95rem;
+            text-align: center;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
         /* --- Profile --- */
         .profile-section {
             display: flex;
@@ -144,16 +166,17 @@
         .method-step { color: var(--text-accent); font-weight: bold; display: block; margin-bottom: 5px; }
         .method-fact { color: #ccc; display: block; margin-bottom: 5px; }
         .method-terminlogy { color: #888; font-size: 0.8rem; display: block; }
-        
-        /* Captured Value Style (NEW Ver 5.5) */
-        .captured-value-total {
+
+        /* Circular Logic Diagram */
+        .burn-circular-diagram {
             margin-top: 15px;
-            padding: 10px;
-            background: #0a0a0a;
+            background: #000;
             border: 1px solid var(--text-accent);
-            font-weight: bold;
+            padding: 10px;
             text-align: center;
             color: var(--text-accent);
+            font-weight: bold;
+            text-shadow: 0 0 5px var(--text-accent);
         }
 
         /* Simulation Console */
@@ -169,6 +192,55 @@
         .sim-entry { margin-bottom: 6px; }
         .sim-danger { color: var(--danger-color); }
         .sim-accent { color: var(--text-accent); }
+
+        /* --- Independent Auditor's Logs --- */
+        #auditor-logs { background: #050505; border: 1px solid var(--text-accent); position: relative; }
+        .log-box {
+            background-color: #000;
+            border: 1px solid #222;
+            padding: 15px;
+            height: 150px;
+            overflow-y: auto;
+            font-size: 0.8rem;
+            color: #888;
+        }
+        .live-label { position: absolute; top: 10px; right: 20px; color: var(--danger-color); font-weight: bold; font-size: 0.7rem; }
+        .audit-entry { margin-bottom: 5px; }
+        .audit-good { color: var(--success-color); }
+        .audit-bad { color: var(--danger-color); }
+
+        /* --- Z2Z Roadmap (Timeline) --- */
+        .roadmap-timeline {
+            margin-top: 20px;
+            position: relative;
+            padding-left: 20px;
+        }
+        .roadmap-item {
+            position: relative;
+            margin-bottom: 30px;
+            padding-left: 30px;
+        }
+        .roadmap-item::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 15px;
+            height: 15px;
+            background: var(--border-color);
+            border-radius: 50%;
+        }
+        .roadmap-item.active::before {
+            background: var(--text-accent);
+            box-shadow: 0 0 10px var(--text-accent);
+        }
+        .roadmap-item.completed {
+            border-left: 2px solid var(--text-accent);
+            padding-left: 28px;
+        }
+        .roadmap-item.completed::before {
+            background: var(--text-accent);
+        }
 
         /* --- Logic Diagram --- */
         .diagram-container {
@@ -221,6 +293,17 @@
             <a href="https://pump.fun/coin/54nX4WHii8D16FLBGu2dcYXpf7rzZrHb8kxuCZvKpump" target="_blank" class="nav-btn">[ BUY Z2Z ON PUMP.FUN ]</a>
             <a href="https://x.com/ZeroToZenith_HQ" target="_blank" class="nav-btn">[ FOLLOW @ZeroToZenith_HQ ]</a>
         </div>
+        
+        <section id="verified-trust">
+            <h2>> Verified Trust Protocol</h2>
+            <div class="drops-locks-headers">
+                <span>VERIFIED: AIRDROP 0</span>
+                <span>TOKEN LOCK 0</span>
+            </div>
+            <div class="trust-explanation">
+                <p>Don't be semantically manipulated by "Locks" or bribed by "Airdrops." Airdrops create concealed clusters. Token locks conceal development ownership. These are semantic covers for value extraction (胴元の搾取構造). Z2Z stands for truth, not hidden central powers. Z2Z has 0 Drops, 0 Locks. inspect the absolute 0% Fact. Built for truth, not hype.</p>
+            </div>
+        </section>
 
         <section id="meet-founder">
             <h2>> Meets Tomokazu Hoshi (影)</h2>
@@ -240,7 +323,7 @@
             <div class="growth-container">
                 <div class="growth-card">
                     <h3>01. The Audit of Typical Project: Anatomizing Extraction.</h3>
-                    <p>These architectures are designed for the team and early insiders to profit, utilizing predictable semantic filters.</p>
+                    <p> designed for the team and early insiders to profit, utilizing predictable semantic filters.</p>
                     <ul>
                         <li>
                             <span class="method-step">Step 1: The "Hype" Trap.</span>
@@ -269,33 +352,43 @@
                 </div>
 
                 <div class="growth-card" style="border-left: 4px solid var(--text-accent);">
-                    <h3>02. Z2Z: The Architecture of Growth (Hoshi's Captured Value).</h3>
-                    <p>Built upon a different philosophy. Mathematically protected, precisely constructed by the shadow craftsman, engineered for sustainable **Value Capture**. Tomokazu Hoshi profits only when the ecosystem is utilized.</p>
+                    <h3>02. Z2Z Logic: Anti-Fragile Hope Architecture.</h3>
+                    <p>Built upon a different philosophy.Mathematically protected, precisely constructed by the shadow craftsman, engineered for sustainable **Deflationary Hope**. Great services never discount. Z2Z Terminal (Phase 2 Utility) remains paid to capture value (月間収益仮説目標: ~$14,500/Month). We utilize a portion (〇〇%) of this captured value to Buy-back & Burn Z2Z, creating sustainable deflation and hope (実需に基づく期待感). circular logic. inspect the Fact. Logic Over Hype.</p>
                     
-                    <ul>
-                        <li>
-                            <span class="method-step">Source A: Terminal Utility Fee (SaaS SaaS)</span>
-                            <span class="method-fact">Fee for advanced Z2Z Terminal audit features (e.g., Lesson 04 Cluster Analysis, Lesson 05 Wash Trading Detection).</span>
-                            <span class="method-terminlogy">(名目：AIエンジン維持・開発コストに対する対価 / SaaSモデル)</span>
-                            <span class="sim-accent"> [ Hypothesis: 50 audits/day @ $5 SOL = ~$7,500/Month ]</span>
-                        </li>
-                        <li>
-                            <span class="method-step">Source B: On-Chain Fact API Access (API API)</span>
-                            <span class="method-fact">License fee for DEXs/Bots to integrate verified live data ( RPC Connection / Ver 3.6+ ) and audit scores.</span>
-                            <span class="method-terminlogy">(名目：インフラ提供およびデータライセンス料)</span>
-                            <span class="sim-accent"> [ Hypothesis: 10 partners @ $500/Month = ~$5,000/Month ]</span>
-                        </li>
-                        <li>
-                            <span class="method-step">Source C: Anti-Extractive Maintenance (Security Security)</span>
-                            <span class="method-fact">License & Consulting for other Launchpads to integrate Z2Z safety filters ( Phase 3 ).</span>
-                            <span class="method-terminlogy">(名目：セキュリティ・ソリューションの提供対価)</span>
-                            <span class="sim-accent"> [ Hypothesis: 2 partners @ $1,000/Month = ~$2,000/Month ]</span>
-                        </li>
-                    </ul>
-                    
-                    <div class="captured-value-total">
-                        Hoshi's Captured Value Total (Hypothesis): ~$14,500/Month
+                    <div class="burn-circular-diagram">
+                        [ Hoshi's Captured Value (SaaS/API) ] → → → [ 〇〇% Used for Buy-back & Burn ] → → → [ Z2Z Deflation & Holder Hope ]
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="auditor-logs">
+            <h2>> Independent Logs: Live Z2Z审计實況</h2>
+            <div class="live-label">● LIVE</div>
+            <div class="log-box" id="independent-log">
+                <div class="audit-entry">> Z2Z Logical engine operational. stand by for new Solana mainnet-beta signature...</div>
+            </div>
+        </section>
+
+        <section id="z2z-roadmap">
+            <h2>> Z2Z Proprietary Roadmap</h2>
+            <p>Our roadmap is a sequence of logic milestones, ensuring Z2Z becomes the definitive filter for truth on the Solana network.</p>
+            <div class="roadmap-timeline">
+                <div class="roadmap-item completed">
+                    <h4>Phase 1: Foundation Built (Completed)</h4>
+                    <p>Z2Z Engine V1.0 operational. Official launch on Pump.fun with verified 0% clustering.</p>
+                </div>
+                <div class="roadmap-item active completed">
+                    <h4>Phase 2: Data 武装化 (Live)</h4>
+                    <p>Proprietary Neural Engine V3.6 goes live. Live audit of Mint/Freeze Authority from Solana RPC connection. <span class="sim-accent"> [ Hypothesis Target: Captured Value ~$14,500/Month ] </span></p>
+                </div>
+                <div class="roadmap-item active">
+                    <h4>Phase 3: The Solana Safety Filter (Promise)</h4>
+                    <p>Develop and integrate Lesson 04 (Authority Renunciation) as an automated, definitive safety check for any Solana network cryptocurrency. <span class="sim-accent"> [ Hypothesis Target: Captured Value ~$25,000/Month ] </span></p>
+                </div>
+                <div class="roadmap-item">
+                    <h4>Phase 4: Multi-Chain Logic Domination (Future)</h4>
+                    <p>Z2Z Logic dominate other networks, ensuring mathematics replaces hype. <span class="sim-accent"> [ Hypothesis Target: Captured Value ~$100,000/Month ] </span></p>
                 </div>
             </div>
         </section>
@@ -370,6 +463,27 @@
                 }
             }, 1000);
         }
+
+        // Independent Logs 実況
+        const indyLog = document.getElementById('independent-log');
+        const audits = [
+            { id: '1a2b3c', score: 100, good: true, desc: 'Renounced MINT/Freeze' },
+            { id: 'ca1234', score: 40, good: false, desc: 'Cluster Detected (>20%)' },
+            { id: 'Z2Z', score: 100, good: true, desc: 'SIGNATURE DETECTED' },
+            { id: 'def456', score: 70, good: true, desc: 'Verified 0% Cluster' }
+        ];
+        let auditIdx = 0;
+
+        function addAuditorEntry() {
+            const audit = audits[auditIdx % audits.length];
+            const cls = audit.good ? 'audit-good' : 'audit-bad';
+            const logEntry = `<div class="audit-entry"> ${new Date().toLocaleTimeString()} > INCOMING SIGNATURE: ${audit.id} | Z2Z Logic score: ${audit.score}/100 [ ${audit.desc} ]</div>`;
+            indyLog.innerHTML += logEntry;
+            indyLog.scrollTop = indyLog.scrollHeight;
+            auditIdx++;
+        }
+        setInterval(addAuditorEntry, 4000); // 4秒ごとに新しい監査ログを追加
+        
     </script>
 </body>
 </html>
