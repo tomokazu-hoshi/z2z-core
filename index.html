@@ -106,7 +106,7 @@
         /* --- Sections General --- */
         section { margin-bottom: 60px; padding: 20px; background: #080808; border: 1px solid #111; }
         h2 { color: var(--text-accent); font-size: 1.8rem; border-bottom: 2px solid var(--text-accent); padding-bottom: 10px; margin-top: 0; }
-        h3 { color: var(--text-accent); margin-top: 20px; border-bottom: 1px dashed #333; padding-bottom: 5px; }
+        h3 { color: var(--text-accent); margin-top: 20px; }
         h4 { color: var(--text-accent); font-size: 1.2rem; margin: 0 0 10px 0; }
 
         /* --- Meet Tomokazu Hoshi (Profile) (Ver 5.1 Inheritance) --- */
@@ -130,9 +130,18 @@
             font-weight: bold;
             border-radius: 50%;
         }
-        .profile-content p { color: #ccc; font-size: 0.9rem; margin: 0; }
+        .profile-content h4 {
+            color: var(--text-accent);
+            font-size: 1.2rem;
+            margin: 0 0 10px 0;
+        }
+        .profile-content p {
+            color: #ccc;
+            font-size: 0.9rem;
+            margin: 0;
+        }
 
-        /* --- Growing with Logic (Growth Mechanism) (Ver 5.2 UPDATED) --- */
+        /* --- Growing with Logic (Growth Mechanism) (Ver 5.3 UPDATED) --- */
         .growth-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -145,10 +154,14 @@
             padding: 20px;
         }
         .growth-card ul { padding-left: 20px; color: #ccc; font-size: 0.9rem; }
-        .growth-card li { margin-bottom: 10px; }
-        .logic-label { color: var(--text-accent); font-weight: bold; }
+        .growth-card li { margin-bottom: 15px; border-bottom: 1px dashed #333; padding-bottom: 15px; }
+        .growth-card li:last-child { border-bottom: none; }
+        
+        .method-step { color: var(--text-accent); font-weight: bold; display: block; margin-bottom: 5px; }
+        .method-fact { color: #ccc; display: block; margin-bottom: 5px; }
+        .method-terminlogy { color: #888; font-size: 0.8rem; display: block; }
 
-        /* Simulation Console Style */
+        /* Simulation Console Style (Ver 5.2 Inheritance) */
         .simulation-console {
             background: #000;
             border: 1px solid #222;
@@ -161,6 +174,39 @@
         .sim-entry { margin-bottom: 4px; }
         .sim-danger { color: var(--danger-color); }
         .sim-accent { color: var(--text-accent); }
+
+        /* --- Z2Z Roadmap (Timeline) (Ver 4.8 Inheritance) --- */
+        .roadmap-timeline {
+            margin-top: 20px;
+            position: relative;
+            padding-left: 20px;
+        }
+        .roadmap-item {
+            position: relative;
+            margin-bottom: 30px;
+            padding-left: 30px;
+        }
+        .roadmap-item::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 15px;
+            height: 15px;
+            background: var(--border-color);
+            border-radius: 50%;
+        }
+        .roadmap-item.active::before {
+            background: var(--text-accent);
+            box-shadow: 0 0 10px var(--text-accent);
+        }
+        .roadmap-item.completed {
+            border-left: 2px solid var(--text-accent);
+            padding-left: 28px;
+        }
+        .roadmap-item.completed::before {
+            background: var(--text-accent);
+        }
 
         /* --- Logic Diagram (Ver 4.8 Inheritance) --- */
         .diagram-container {
@@ -241,17 +287,33 @@
 
         <section id="growing-logic">
             <h2>> The Growth Mechanism</h2>
-            <p>Traditional projects are engineered for **Value Extraction**, not sustainable growth. Z2Z builds value through mathematics and logic.</p>
+            <p>Market is full of projects, but not all are engineered for growth. Most typical projects are engineered for **Value Extraction**, not sustainable growth. Z2Z builds value through mathematics and logic.</p>
             
             <div class="growth-grid">
                 <div class="growth-card">
-                    <h3>Most typical projects: Engineered to Extraction.</h3>
-                    <p>Designed for the team and early insiders to profit, utilizing predictable semantic filters (Lessons).</p>
+                    <h3>The Audit of Typical Project: Anatomizing Extraction.</h3>
+                    <p>These architectures are designed for the team and early insiders to profit, utilizing predictable semantic filters (Lessons).</p>
                     <ul>
-                        <li><span class="logic-label">1. Engineered Hype ( Lesson 01 )</span><br>Semantic manipulation via paid influencers ( predators / Lesson 02 ) over technical specs.</li>
-                        <li><span class="logic-label">2. Insider Accumulation ( Cabal Wallets / Lesson 04 )</span><br> hidden wallet clusters holding >20% of supply (centralized dump). Bubble Maps exposes this.</li>
-                        <li><span class="logic-label">3. Manipulation ( Lesson 05 )</span><br>Wash trading with bots to trend and fake volume. LP Trap ( Lesson 06 ).</li>
-                        <li><span class="logic-label">4. Total Extraction ( Rug Pull / Lesson 07 )</span><br>Inside money withdraws. Community holds worthless tokens with **0** value. This is the architecture’s design.</li>
+                        <li>
+                            <span class="method-step">Step 1: The "Hype" Trap.</span>
+                            <span class="method-fact">Project team uses paid celebrities and influencers ( predators / Lesson 02 ) to create an illusion of community and demand over technical specs. The goal is to break your analytical filters and create emotional FOMO ( Lesson 01 ).</span>
+                            <span class="method-terminlogy">(詐欺手法：Engineered Hype)</span>
+                        </li>
+                        <li>
+                            <span class="method-step">Step 2: The "Cluster" Monopoly.</span>
+                            <span class="method-fact">Insiders hide multi-wallet clusters ( Cabal Wallets / Lesson 04 ) that hold >20% of the token supply ( centralized monopoly ). Z2Z Logic Inspector exposes this Cluster.</span>
+                            <span class="method-terminlogy">(詐欺手法：Insider Accumulation)</span>
+                        </li>
+                        <li>
+                            <span class="method-step">Step 3: The "fake value" Generation.</span>
+                            <span class="method-fact">They utilize automated bots ( Lesson 05 ) to generate fake volume and fake liquidity ( fake value ), trapping your assets ( LP Trap / Lesson 06 ).</span>
+                            <span class="method-terminlogy">(詐欺手法：Wash Trading)</span>
+                        </li>
+                        <li>
+                            <span class="method-step">Step 4: The final "exit" Strategy.</span>
+                            <span class="method-fact">Inside money withdraws. Community is left holding worthless tokens with **0** value. This collapse is not a failure; it is the *design* of the architecture.</span>
+                            <span class="method-terminlogy">(詐欺手法：Rug Pull / Lesson 07)</span>
+                        </li>
                     </ul>
                 </div>
 
@@ -265,7 +327,7 @@
             <div class="simulation-console">
                 <div class="sim-entry">> Z2Z Neural Engine: USD Conversion Simulation.</div>
                 <div class="sim-entry">> Hypothesis: Typical 1 Billion supply coin. 20% insider Cluster detected.</div>
-                <div class="sim-entry">> INITIAL LAUNCH... [ <span class="sim-accent">Market Cap: $10,000</span> ]</div>
+                <div class="sim-entrysim-entry sim-danger sim-danger">> INITIAL LAUNCH... [ <span class="sim-accent">Market Cap: $10,000</span> ]</div>
                 <div class="sim-entry">> EXECUTING HYPE & Wash Trading bots...</div>
                 <div class="sim-entry">> PEAK PUMP... [ <span class="sim-accent">Market Cap: $1,000,000</span> ] [ Token Price: $0.001 ]</div>
                 <div class="sim-entry sim-danger">> INSIDER LOGIC: Capturing Value. [ 200M tokens @ $0.001 = <span class="sim-danger">$200,000</span> ]</div>
