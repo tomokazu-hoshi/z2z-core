@@ -48,7 +48,7 @@
         }
         .nav-btn:hover { background-color: var(--text-accent); color: var(--bg-color); }
 
-        /* --- Header (Integrated with Image) (Ver 5.0 UPDATED) --- */
+        /* --- Header (Integrated with Image) (Ver 5.0 Inheritance) --- */
         header {
             text-align: center;
             margin-bottom: 30px;
@@ -106,10 +106,10 @@
         /* --- Sections General --- */
         section { margin-bottom: 60px; padding: 20px; background: #080808; border: 1px solid #111; }
         h2 { color: var(--text-accent); font-size: 1.8rem; border-bottom: 2px solid var(--text-accent); padding-bottom: 10px; margin-top: 0; }
-        h3 { color: var(--text-accent); margin-top: 20px; }
+        h3 { color: var(--text-accent); margin-top: 20px; border-bottom: 1px dashed #333; padding-bottom: 5px; }
         h4 { color: var(--text-accent); font-size: 1.2rem; margin: 0 0 10px 0; }
 
-        /* --- NEW: Meet Tomokazu Hoshi (Profile) (Ver 5.1 UPDATED) --- */
+        /* --- Meet Tomokazu Hoshi (Profile) (Ver 5.1 Inheritance) --- */
         .profile-section {
             display: flex;
             align-items: center;
@@ -130,18 +130,9 @@
             font-weight: bold;
             border-radius: 50%;
         }
-        .profile-content h4 {
-            color: var(--text-accent);
-            font-size: 1.2rem;
-            margin: 0 0 10px 0;
-        }
-        .profile-content p {
-            color: #ccc;
-            font-size: 0.9rem;
-            margin: 0;
-        }
+        .profile-content p { color: #ccc; font-size: 0.9rem; margin: 0; }
 
-        /* --- Growing with Logic (Growth Mechanism) (Ver 4.8 Inheritance) --- */
+        /* --- Growing with Logic (Growth Mechanism) (Ver 5.2 UPDATED) --- */
         .growth-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -153,45 +144,23 @@
             border: 1px solid #222;
             padding: 20px;
         }
-        .logic-step {
-            color: var(--text-accent);
-            font-weight: bold;
-            margin-bottom: 5px;
-            display: block;
-        }
+        .growth-card ul { padding-left: 20px; color: #ccc; font-size: 0.9rem; }
+        .growth-card li { margin-bottom: 10px; }
+        .logic-label { color: var(--text-accent); font-weight: bold; }
 
-        /* --- Z2Z Roadmap (Timeline) (Ver 4.8 Inheritance) --- */
-        .roadmap-timeline {
-            margin-top: 20px;
-            position: relative;
-            padding-left: 20px;
+        /* Simulation Console Style */
+        .simulation-console {
+            background: #000;
+            border: 1px solid #222;
+            padding: 15px;
+            font-family: inherit;
+            font-size: 0.8rem;
+            color: #888;
+            margin-top: 15px;
         }
-        .roadmap-item {
-            position: relative;
-            margin-bottom: 30px;
-            padding-left: 30px;
-        }
-        .roadmap-item::before {
-            content: "";
-            position: absolute;
-            left: 0;
-            top: 5px;
-            width: 15px;
-            height: 15px;
-            background: var(--border-color);
-            border-radius: 50%;
-        }
-        .roadmap-item.active::before {
-            background: var(--text-accent);
-            box-shadow: 0 0 10px var(--text-accent);
-        }
-        .roadmap-item.completed {
-            border-left: 2px solid var(--text-accent);
-            padding-left: 28px;
-        }
-        .roadmap-item.completed::before {
-            background: var(--text-accent);
-        }
+        .sim-entry { margin-bottom: 4px; }
+        .sim-danger { color: var(--danger-color); }
+        .sim-accent { color: var(--text-accent); }
 
         /* --- Logic Diagram (Ver 4.8 Inheritance) --- */
         .diagram-container {
@@ -272,20 +241,38 @@
 
         <section id="growing-logic">
             <h2>> The Growth Mechanism</h2>
-            <p>Don't be fooled by hype. Traditional projects profit by dumping on the community. Z2Z builds value through mathematics and logic.</p>
+            <p>Traditional projects are engineered for **Value Extraction**, not sustainable growth. Z2Z builds value through mathematics and logic.</p>
+            
             <div class="growth-grid">
                 <div class="growth-card">
-                    <h4>The Scam Project's Path (The Ending)</h4>
-                    <p>Hype Marketing → High Developer Holdings → Fake Utility → Developer Dumps (Rug Pull) → Final Token Price: <strong>0.</strong></p>
+                    <h3>Most typical projects: Engineered to Extraction.</h3>
+                    <p>Designed for the team and early insiders to profit, utilizing predictable semantic filters (Lessons).</p>
+                    <ul>
+                        <li><span class="logic-label">1. Engineered Hype ( Lesson 01 )</span><br>Semantic manipulation via paid influencers ( predators / Lesson 02 ) over technical specs.</li>
+                        <li><span class="logic-label">2. Insider Accumulation ( Cabal Wallets / Lesson 04 )</span><br> hidden wallet clusters holding >20% of supply (centralized dump). Bubble Maps exposes this.</li>
+                        <li><span class="logic-label">3. Manipulation ( Lesson 05 )</span><br>Wash trading with bots to trend and fake volume. LP Trap ( Lesson 06 ).</li>
+                        <li><span class="logic-label">4. Total Extraction ( Rug Pull / Lesson 07 )</span><br>Inside money withdraws. Community holds worthless tokens with **0** value. This is the architecture’s design.</li>
+                    </ul>
                 </div>
+
                 <div class="growth-card">
-                    <h4>The Z2Z Proprietary Growth Path</h4>
-                    <p>
-                        <span class="logic-step">Step 1: The On-Chain Fact.</span> Mint Authority Renounced / Freeze Authority Renounced.<br>
-                        <span class="logic-step">Step 2: The Trust Built.</span> Investors verify our 100% logic score.<br>
-                        <span class="logic-step">Step 3: The Sustainable Growth.</span> Community uses Z2Z Logic Engine to scan other coins, creating a circular ecosystem of truth and value.
-                    </p>
+                    <h3>Z2Z: The Architecture of Growth.</h3>
+                    <p>Built upon a different philosophy.Mathematically protected, precisely constructed by the shadow craftsman.</p>
+                    <p style="color: #ccc; font-size: 0.9rem; margin-top: 15px;">私達のプロジェクトに関しては「〜と〜と〜で利益を得るシステムを取り、常に成長していく事が出来る。それがZ2Zプロジェクトだ。</p>
                 </div>
+            </div>
+
+            <div class="simulation-console">
+                <div class="sim-entry">> Z2Z Neural Engine: USD Conversion Simulation.</div>
+                <div class="sim-entry">> Hypothesis: Typical 1 Billion supply coin. 20% insider Cluster detected.</div>
+                <div class="sim-entry">> INITIAL LAUNCH... [ <span class="sim-accent">Market Cap: $10,000</span> ]</div>
+                <div class="sim-entry">> EXECUTING HYPE & Wash Trading bots...</div>
+                <div class="sim-entry">> PEAK PUMP... [ <span class="sim-accent">Market Cap: $1,000,000</span> ] [ Token Price: $0.001 ]</div>
+                <div class="sim-entry sim-danger">> INSIDER LOGIC: Capturing Value. [ 200M tokens @ $0.001 = <span class="sim-danger">$200,000</span> ]</div>
+                <div class="sim-entry sim-danger">> EXECUTING EXTENSION PROTOCOL (DUMPing Cluster)...</div>
+                <div class="sim-entry sim-danger">> TOTAL LIQUIDITY COLLAPSE detected. Price -95%+. Panic Dominance.</div>
+                <div class="sim-entry">> FINAL STATE... [ <span class="sim-accent">Community Bags: Worthless (0)</span> ] [ Insider Captured: $200,000 ]</div>
+                <div class="sim-entry">> Z2Z INSPECTOR: Logic confirms extraction was the system’s design.</div>
             </div>
         </section>
 
