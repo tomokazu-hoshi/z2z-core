@@ -16,6 +16,10 @@
             --success-color: #00ffcc;
         }
 
+        /* Ver 6.2 Optimization: Reset for details/summary */
+        details summary { cursor: pointer; outline: none; list-style: none; }
+        details summary::-webkit-details-marker { display: none; }
+
         body {
             background-color: var(--bg-color);
             color: var(--text-main);
@@ -47,6 +51,10 @@
             font-weight: bold;
         }
         .nav-btn:hover { background-color: var(--text-accent); color: var(--bg-color); }
+
+        /* Ver 6.2 NEW: In-Page Navigation */
+        .in-page-nav { text-align: center; margin-bottom: 20px; border-bottom: 1px solid #111; padding-bottom: 10px; }
+        .in-page-nav a { font-size: 0.8rem; margin: 0 10px; text-transform: uppercase; }
 
         /* --- Header --- */
         header {
@@ -128,29 +136,6 @@
             margin-right: auto;
         }
 
-        /* --- Profile --- */
-        .profile-section {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            background: #0a0a0a;
-            border: 1px solid #222;
-            padding: 20px;
-        }
-        .profile-avatar {
-            width: 80px;
-            height: 80px;
-            background: var(--text-accent);
-            color: var(--bg-color);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            font-weight: bold;
-            border-radius: 50%;
-        }
-        .profile-content p { color: #ccc; font-size: 0.9rem; margin: 0; }
-
         /* --- Growth Section Architecture --- */
         .growth-container { display: flex; flex-direction: column; gap: 30px; margin-top: 20px; }
         
@@ -167,18 +152,28 @@
         .method-fact { color: #ccc; display: block; margin-bottom: 5px; }
         .method-terminlogy { color: #888; font-size: 0.8rem; display: block; }
 
-        /* Solscan Guide (NEW Ver 6.1) */
-        .solscan-guide-section {
+        /* Solscan Guide ( Ver 6.1 Inheritance, 6.2 optimization: details/summary ) */
+        .solscan-guide-pod {
             background: #0a0a0a;
             border: 1px solid #222;
-            padding: 25px;
             margin-top: 30px;
         }
-        .solscan-guide-section ul { padding-left: 20px; color: #ccc; font-size: 0.9rem; }
-        .solscan-guide-section li { margin-bottom: 15px; border-bottom: 1px dashed #333; padding-bottom: 15px; }
-        .solscan-guide-section li:last-child { border-bottom: none; }
+        /* Ver 6.2 Styling for the pod header */
+        .solscan-guide-pod summary {
+            padding: 25px;
+            color: var(--text-accent);
+            font-size: 1.4rem;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .solscan-guide-pod summary:hover { background-color: #111; }
+        /* Ver 6.2 Styling for the content within the opened details */
+        .solscan-guide-content { padding: 0 25px 25px 25px; }
+        .solscan-guide-pod ul { padding-left: 20px; color: #ccc; font-size: 0.9rem; }
+        .solscan-guide-pod li { margin-bottom: 15px; border-bottom: 1px dashed #333; padding-bottom: 15px; }
+        .solscan-guide-pod li:last-child { border-bottom: none; }
 
-        /* CTA to Audit Console (NEW Ver 6.1) */
+        /* CTA to Audit Console */
         .audit-cta-box {
             background-color: #111;
             border: 1px solid var(--text-accent);
@@ -233,6 +228,29 @@
         .audit-entry { margin-bottom: 5px; }
         .audit-good { color: var(--success-color); }
         .audit-bad { color: var(--danger-color); }
+
+        /* --- Profile --- */
+        .profile-section {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background: #0a0a0a;
+            border: 1px solid #222;
+            padding: 20px;
+        }
+        .profile-avatar {
+            width: 80px;
+            height: 80px;
+            background: var(--text-accent);
+            color: var(--bg-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            font-weight: bold;
+            border-radius: 50%;
+        }
+        .profile-content p { color: #ccc; font-size: 0.9rem; margin: 0; }
 
         /* --- Z2Z Roadmap (Timeline) --- */
         .roadmap-timeline {
@@ -308,6 +326,14 @@
             <p>Active On-Chain Audit Terminal // Logic Over Hype</p>
         </header>
 
+        <div class="in-page-nav">
+            <a href="#growing-logic">> Growth Mechanism</a>
+            <a href="#solscan-guide">> Solscan Guide</a>
+            <a href="#auditor-logs">> Live Logs</a>
+            <a href="#z2z-roadmap">> Roadmap</a>
+            <a href="#audit-console">> Console</a>
+        </div>
+
         <div class="ca-display-box">
             <span class="ca-label">Official Z2Z Contract Address</span>
             <span class="ca-value" id="z2z-ca-value">54nX4WHii8D16FLBGu2dcYXpf7rzZrHb8kxuCZvKpump</span>
@@ -336,20 +362,24 @@
             
             <div class="growth-container">
                 <div class="growth-card">
-                    <h3>01. The Audit of Typical Project: Anatomizing Extraction.</h3>
-                    <p> designed for the team and early insiders to profit, utilizing predictable semantic filters.</p>
-                    <ul>
-                        <li>
-                            <span class="method-step">Step 1: The "Hype" Trap.</span>
-                            <span class="method-fact">Project team uses celebrities and influencers to create emotional FOMO over technical specs.</span>
-                            <span class="method-terminlogy">(Method: Engineered Hype)</span>
-                        </li>
-                        <li>
-                            <span class="method-step">Step 2: The "Cluster" Monopoly.</span>
-                            <span class="method-fact">Insiders hide multi-wallet clusters that hold >20% of the token supply for a centralized dump.</span>
-                            <span class="method-terminlogy">(Method: Insider Accumulation)</span>
-                        </li>
-                    </ul>
+                    <details>
+                        <summary><h3>01. The Audit of Typical Project: Anatomizing Extraction. [ > Audit Hype Logic ] </h3></summary>
+                        <div class="solscan-guide-content">
+                            <p> designed for the team and early insiders to profit, utilizing predictable semantic filters.</p>
+                            <ul>
+                                <li>
+                                    <span class="method-step">Step 1: The "Hype" Trap.</span>
+                                    <span class="method-fact">Project team uses celebrities and influencers to create emotional FOMO over technical specs.</span>
+                                    <span class="method-terminlogy">(Method: Engineered Hype)</span>
+                                </li>
+                                <li>
+                                    <span class="method-step">Step 2: The "Cluster" Monopoly.</span>
+                                    <span class="method-fact">Insiders hide multi-wallet clusters that hold >20% of the token supply for a centralized dump.</span>
+                                    <span class="method-terminlogy">(Method: Insider Accumulation)</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </details>
                 </div>
 
                 <div class="simulation-console">
@@ -365,26 +395,30 @@
                     <div class="sim-entry">> Z2Z INSPECTOR: Logic confirms extraction was the system’s design.</div>
                 </div>
 
-                <div class="solscan-guide-section">
-                    <h3>02. Meets the On-Chain Detective: Solscan Audit Guide.</h3>
-                    <p> Traditional tools cannot expose Cabal's logic. You must audit the Fact yourself on Solscan (or similar RPC explorer). built for those with analytical filters analytical filters. Inspect the absolute Fact.</p>
-                    <ul>
-                        <li>
-                            <span class="method-step">Check 1: Holder Distribution (Cluster Analysis)</span>
-                            <span class="method-fact">Click "Holders" tab. Look for many small wallets with similar balance created around the same time. This is a Cabal cluster.</span>
-                            <span class="method-terminlogy">( Japanese reference: 胴元の搾取構造 )</span>
-                        </li>
-                        <li>
-                            <span class="method-step">Check 2: Mint Authority (Authority Renunciation)</span>
-                            <span class="method-fact">Click "Token" tab. Look for "Mint Authority" Enabled. If assigned to deployer, they can mint infinite tokens and dump. Z2Z is 0 Drops/0 Locks. built for truth.</span>
-                            <span class="method-terminlogy">( Japanese reference: ミント権限の放棄 )</span>
-                        </li>
-                        <li>
-                            <span class="method-step">Check 3: Liquidity Lock (Raydium, etc.)</span>
-                            <span class="method-fact">Click "Liquidity" tab. Check if liquidity pool tokens are sent to a burn address or verifiable locker contract. If not, Cabal can remove liquidity and rug pull rug pull. Inspect the Fact.</span>
-                            <span class="method-terminlogy">( Japanese reference: 流動性のロック )</span>
-                        </li>
-                    </ul>
+                <div id="solscan-guide" class="solscan-guide-pod">
+                    <details>
+                        <summary>> Meets the On-Chain Detective: Solscan Audit Guide. [ > Audit Solscan Fact ]</summary>
+                        <div class="solscan-guide-content">
+                            <p> Traditional tools cannot expose Cabal's logic. You must audit the Fact yourself on Solscan (or similar RPC explorer). built for those with analytical filters analytical filters. Inspect the absolute Fact.</p>
+                            <ul>
+                                <li>
+                                    <span class="method-step">Check 1: Holder Distribution (Cluster Analysis)</span>
+                                    <span class="method-fact">Click "Holders" tab. Look for many small wallets with similar balance created around the same time. This is a Cabal cluster.</span>
+                                    <span class="method-terminlogy">( Japanese reference: 胴元の搾取構造 )</span>
+                                </li>
+                                <li>
+                                    <span class="method-step">Check 2: Mint Authority (Authority Renunciation)</span>
+                                    <span class="method-fact">Click "Token" tab. Look for "Mint Authority" Enabled. If assigned to deployer, they can mint infinite tokens and dump. Z2Z is 0 Drops/0 Locks. built for truth.</span>
+                                    <span class="method-terminlogy">( Japanese reference: ミント権限の放棄 )</span>
+                                </li>
+                                <li>
+                                    <span class="method-step">Check 3: Liquidity Lock (Raydium, etc.)</span>
+                                    <span class="method-fact">Click "Liquidity" tab. Check if liquidity pool tokens are sent to a burn address or verifiable locker contract. If not, Cabal can remove liquidity and rug pull rug pull. Inspect the Fact.</span>
+                                    <span class="method-terminlogy">( Japanese reference: 流動性のロック )</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </details>
                 </div>
 
                 <div class="audit-cta-box" onclick="location.href='#audit-console'">
@@ -392,7 +426,7 @@
                 </div>
 
                 <div class="growth-card" style="border-left: 4px solid var(--text-accent);">
-                    <h3>03. Z2Z Logic: Anti-Fragile Hope Architecture.</h3>
+                    <h3>02. Z2Z Logic: Anti-Fragile Hope Architecture.</h3>
                     <p>Built upon a different philosophy.Mathematically protected, precisely constructed by the shadow craftsman, engineered for sustainable **Deflationary Hope**. Great services never discount. Z2Z Terminal (Phase 2 Utility) remains paid to capture value (Hypothesis Monthly Target: ~$14,500/Month). We utilize a portion (〇〇%) of this captured value to Buy-back & Burn Z2Z, creating sustainable deflation and hope (Hope based on utility). circular logic. inspect the Fact. Logic Over Hype.</p>
                     
                     <div class="burn-circular-diagram">
@@ -407,17 +441,6 @@
             <div class="live-label">● LIVE</div>
             <div class="log-box" id="independent-log">
                 <div class="audit-entry">> Z2Z Logical engine operational. stand by for new Solana mainnet-beta signature...</div>
-            </div>
-        </section>
-
-        <section id="meet-founder">
-            <h2>> Meets Tomokazu Hoshi (Shadow) (Ver 5.1/6.0 Inheritance)</h2>
-            <div class="profile-section">
-                <div class="profile-avatar">星</div>
-                <div class="profile-content">
-                    <h4>Architect of decentralized logic.</h4>
-                    <p>Details unknown. Name may be a mask, details are logic. Driven by a Japanese philosophy of craftsmanship—precise, ceaseless code construction. The shadow constructs the decentralized truth. Do not look for the man. Inspect the output. Logic Over Hype.</p>
-                </div>
             </div>
         </section>
 
@@ -440,6 +463,17 @@
                 <div class="roadmap-item">
                     <h4>Phase 4: Multi-Chain Logic Domination (Future)</h4>
                     <p>Z2Z Logic dominate other networks, ensuring mathematics replaces hype. <span class="sim-accent"> [ Hypothesis Target: Captured Value ~$100,000/Month ] </span></p>
+                </div>
+            </div>
+        </section>
+
+        <section id="meet-founder">
+            <h2>> Meets Tomokazu Hoshi (Shadow) (Ver 5.1/6.0 Inheritance)</h2>
+            <div class="profile-section">
+                <div class="profile-avatar">星</div>
+                <div class="profile-content">
+                    <h4>Architect of decentralized logic.</h4>
+                    <p>Details unknown. Name may be a mask, details are logic. Driven by a Japanese philosophy of craftsmanship—precise, ceaseless code construction. The shadow constructs the decentralized truth. Do not look for the man. Inspect the output. Logic Over Hype.</p>
                 </div>
             </div>
         </section>
