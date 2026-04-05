@@ -16,7 +16,7 @@
             --success-color: #00ffcc;
         }
 
-        /* Ver 6.2 Optimization: Reset for details/summary */
+        /* Reset for details/summary */
         details summary { cursor: pointer; outline: none; list-style: none; }
         details summary::-webkit-details-marker { display: none; }
 
@@ -52,7 +52,7 @@
         }
         .nav-btn:hover { background-color: var(--text-accent); color: var(--bg-color); }
 
-        /* Ver 6.2 Optimization: In-Page Navigation */
+        /* In-Page Navigation */
         .in-page-nav { text-align: center; margin-bottom: 20px; border-bottom: 1px solid #111; padding-bottom: 10px; }
         .in-page-nav a { font-size: 0.8rem; margin: 0 10px; text-transform: uppercase; }
 
@@ -158,7 +158,6 @@
             border: 1px solid #222;
             margin-top: 30px;
         }
-        /* Ver 6.2 Styling for the pod header */
         .solscan-guide-pod summary {
             padding: 25px;
             color: var(--text-accent);
@@ -167,7 +166,6 @@
             transition: 0.3s;
         }
         .solscan-guide-pod summary:hover { background-color: #111; }
-        /* Ver 6.2 Styling for the content within the opened details */
         .solscan-guide-content { padding: 0 25px 25px 25px; }
         .solscan-guide-pod ul { padding-left: 20px; color: #ccc; font-size: 0.9rem; }
         .solscan-guide-pod li { margin-bottom: 15px; border-bottom: 1px dashed #333; padding-bottom: 15px; }
@@ -187,7 +185,7 @@
         .audit-cta-box:hover { border-color: var(--danger-color); box-shadow: 0 0 10px var(--danger-color); }
         .cta-text { color: var(--text-accent); font-weight: bold; font-size: 1.1rem; }
 
-        /* Ver 6.5 NEW: Deflationary Logic Counters (Simulation Hypothesis) */
+        /* Deflationary Logic Counters (Ver 6.5 Simulation Hypothesis) */
         .deflation-counter-container {
             display: flex;
             justify-content: space-around;
@@ -233,11 +231,11 @@
         .sim-danger { color: var(--danger-color); }
         .sim-accent { color: var(--text-accent); }
 
-        /* --- Independent Auditor's Logs ( Phase 5 実装) (Ver 5.6 Inheritance, 5.9 Global Fix 監査完了, 6.5 Scorecard統合) --- */
+        /* --- Independent Auditor's Logs ( Phase 5 実装) (Ver 5.6 Inheritance, 5.9 Global Fix 監査完了, 6.6 No-Image Dynamic Scorecard統合) --- */
         #auditor-logs { background: #050505; border: 1px solid var(--text-accent); position: relative; }
         
-        /* Ver 6.5 NEW: Scorecard Display (Simulation Placeholder) */
-        .audit-scorecard-container {
+        /* Ver 6.6 NEW: No-Image Dynamic Scorecard Bar */
+        .audit-score-meter-container {
             margin-top: 20px;
             margin-bottom: 20px;
             padding: 20px;
@@ -245,26 +243,22 @@
             border: 1px solid #111;
             text-align: center;
         }
-        .scorecard-label { font-size: 0.8rem; color: var(--text-accent); font-weight: bold; display: block; margin-bottom: 10px; }
-        .scorecard-image-box {
-            width: 300px;
-            height: 300px;
-            margin-left: auto;
-            margin-right: auto;
-            background-color: #0a0a0a;
+        .score-meter-label { font-size: 0.8rem; color: var(--text-accent); font-weight: bold; display: block; margin-bottom: 10px; }
+        .score-meter-bar-outer {
+            width: 100%;
+            height: 20px;
+            background-color: #111;
             border: 1px solid #333;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #444;
-            font-size: 0.8rem;
             position: relative;
+            overflow: hidden;
         }
-        /* Ver 6.5 styling for the placeholder '?' mark in a broken image box */
-        #dynamic-scorecard-image {
-            max-width: 100%;
-            max-height: 100%;
-            display: none; /* hidden until data is loaded */
+        /* Ver 6.6 NEW: Dynamic part of the bar (Logic-driven) */
+        .score-meter-bar-inner {
+            height: 100%;
+            width: 0%; /* Dynamic logic controls this */
+            background: linear-gradient(90deg, var(--danger-color) 0%, var(--warning-color) 50%, var(--success-color) 100%);
+            transition: width 0.3s ease-in-out, background-color 0.3s ease-in-out;
+            box-shadow: 0 0 10px var(--text-accent);
         }
         
         .log-box {
@@ -505,11 +499,10 @@
             <h2>> Independent Logs: Live Z2Z Audit Logs</h2>
             <div class="live-label">● LIVE</div>
 
-            <div class="audit-scorecard-container">
-                <span class="scorecard-label">> Z2Z Audit Scorecard (Live Simulation)</span>
-                <div class="scorecard-image-box">
-                    <img id="dynamic-scorecard-image" src="" alt="Live Audit Scorecard">
-                    <span id="scorecard-placeholder">Waiting for RPC data...</span>
+            <div class="audit-score-meter-container">
+                <span class="score-meter-label">> Z2Z Logic Score (Live Demonstrated Logic)</span>
+                <div class="score-meter-bar-outer">
+                    <div class="score-meter-bar-inner" id="score-meter-bar-inner"></div>
                 </div>
             </div>
 
@@ -525,29 +518,6 @@
                 <div class="profile-content">
                     <h4>Architect of decentralized logic.</h4>
                     <p>Details unknown. Name may be a mask, details are logic. Driven by a Japanese philosophy of craftsmanship—precise, ceaseless code construction. The shadow constructs the decentralized truth. Do not look for the man. Inspect the output. Logic Over Hype.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="z2z-roadmap">
-            <h2>> Z2Z Proprietary Roadmap</h2>
-            <p>Our roadmap is a sequence of logic milestones, ensuring Z2Z becomes the definitive filter for truth on the Solana network.</p>
-            <div class="roadmap-timeline">
-                <div class="roadmap-item completed">
-                    <h4>Phase 1: Foundation Built (Completed)</h4>
-                    <p>Z2Z Engine V1.0 operational. Official launch on Pump.fun with verified 0% clustering.</    div>
-                </div>
-                <div class="roadmap-item active completed">
-                    <h4>Phase 2: Data 武装化 (Live)</h4>
-                    <p>Proprietary Neural Engine V3.6 goes live. Live audit of Mint/Freeze Authority from Solana RPC connection. <span class="sim-accent"> [ Hypothesis Target: Captured Value ~$14,500/Month ] </span></p>
-                </div>
-                <div class="roadmap-item active">
-                    <h4>Phase 3: The Solana Safety Filter (Promise)</h4>
-                    <p>Develop and integrate Lesson 04 (Authority Renunciation) as an automated, definitive safety check for any Solana network cryptocurrency. <span class="sim-accent"> [ Hypothesis Target: Captured Value ~$25,000/Month ] </span></p>
-                </div>
-                <div class="roadmap-item">
-                    <h4>Phase 4: Multi-Chain Logic Domination (Future)</h4>
-                    <p>Z2Z Logic dominate other networks, ensuring mathematics replaces hype. <span class="sim-accent"> [ Hypothesis Target: Captured Value ~$100,000/Month ] </span></p>
                 </div>
             </div>
         </section>
@@ -630,7 +600,7 @@
         const burnedEl = document.getElementById('z2z-burned-value');
 
         function updateCounters() {
-            // Hypothesis:툴이監査をするたびに Captured Valueが少し増える (実需)
+            // Hypothesis: 監査をするたびに Captured Valueが少し増える (実需)
             capturedVal += (Math.random() * 5); // incrementally increase
             
             // Hypothesis: Captured Valueが増えると、Burned Valueも増える (循環)
@@ -643,20 +613,18 @@
         }
         setInterval(updateCounters, 3000); // 3秒ごとにカウンターを更新
 
-        // Independent Logs 実況（Ver 5.6 新規, 5.9 Global Fix 言語監査完了, 6.5 Scorecard統合）
+        // Independent Logs 実況（Ver 5.6 新規, 5.9 Global Fix 言語監査完了, 6.6 No-Image Dynamic Scorecard Bar統合）
         const indyLog = document.getElementById('independent-log');
-        const scorecardImg = document.getElementById('dynamic-scorecard-image');
-        const scorecardPlaceholder = document.getElementById('scorecard-placeholder');
+        const scoreMeterBar = document.getElementById('score-meter-bar-inner');
 
-        // Hypothesis for Phase 5 real-time audit实況 (Simulation only)
-        // Since Gemini cannot generate binary image files, we simulate the logic of setting the image src.
-        // Hoshi must deploy actual image files (image_score100.png, etc.) to GitHub for this to work perfectly.
+        // Hypothesis for Phase 5 real-time audit実況 (Simulation only)
+        // Ver 6.6: Removed 'img' property, as we are no longer using images.
         const audits = [
-            { id: '1a2b3c', score: 100, good: true, desc: 'Renounced MINT/Freeze Authority', img: 'image_score100.png' },
-            { id: 'ca1234', score: 40, good: false, desc: 'Cluster Detected (>20%). Risk extraction.', img: 'image_score40.png' },
-            { id: 'Z2Z', score: 100, good: true, desc: 'Z2Z SIGNATURE DETECTED. Built for truth.', img: 'image_score100_z2z.png' },
-            { id: 'def456', score: 70, good: true, desc: 'Verified 0% Cluster. MINT not renounced.', img: 'image_score70.png' },
-            { id: 'sol999', score: 10, good: false, desc: 'Cabal monopoly detected (>40%). Collapse imminent.', img: 'image_score10.png' }
+            { id: '1a2b3c', score: 100, good: true, desc: 'Renounced MINT/Freeze Authority' },
+            { id: 'ca1234', score: 40, good: false, desc: 'Cluster Detected (>20%). Risk extraction.' },
+            { id: 'Z2Z', score: 100, good: true, desc: 'Z2Z SIGNATURE DETECTED. Built for truth.' },
+            { id: 'def456', score: 70, good: true, desc: 'Verified 0% Cluster. MINT not renounced.' },
+            { id: 'sol999', score: 10, good: false, desc: 'Cabal monopoly detected (>40%). Collapse imminent.' }
         ];
         let auditIdx = 0;
 
@@ -668,15 +636,19 @@
             indyLog.innerHTML += logEntry;
             indyLog.scrollTop = indyLog.scrollHeight;
 
-            // 2. Scorecard Update ( Ver 6.5 )
-            if (scorecardPlaceholder) scorecardPlaceholder.style.display = 'none'; // hide placeholder
+            // 2. No-Image Dynamic Scorecard Bar Update ( Ver 6.6 )
+            // Ver 6.6: Instead of setting img src, we calculate width and color dynamically.
+            const percentage = (audit.score / 100) * 100;
+            scoreMeterBar.style.width = `${percentage}%`;
             
-            // Hypothesis for Phase 5 real RPC data binding. 
-            // Currently, we programmatically set the placeholder "Broken Image" "?" logic from Ver 6.3 
-            // by setting the actual image URL from our audits array.
-            // If the images exist on GitHub Pages, they will display. If not, they will show the placeholder defect.
-            scorecardImg.src = audit.img; 
-            scorecardImg.style.display = 'block'; // show image
+            // Hypothesis: Set color based on score (green/yellow/red)
+            if (audit.score > 80) {
+                scoreMeterBar.style.backgroundColor = 'var(--success-color)'; // Green for Good
+            } else if (audit.score > 50) {
+                scoreMeterBar.style.backgroundColor = 'var(--warning-color)'; // Yellow for Warning
+            } else {
+                scoreMeterBar.style.backgroundColor = 'var(--danger-color)'; // Red for Danger
+            }
 
             auditIdx++;
         }
