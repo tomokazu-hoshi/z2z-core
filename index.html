@@ -52,7 +52,7 @@
         }
         .nav-btn:hover { background-color: var(--text-accent); color: var(--bg-color); }
 
-        /* Ver 6.2 NEW: In-Page Navigation */
+        /* Ver 6.2 Optimization: In-Page Navigation */
         .in-page-nav { text-align: center; margin-bottom: 20px; border-bottom: 1px solid #111; padding-bottom: 10px; }
         .in-page-nav a { font-size: 0.8rem; margin: 0 10px; text-transform: uppercase; }
 
@@ -136,6 +136,29 @@
             margin-right: auto;
         }
 
+        /* --- Profile --- */
+        .profile-section {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background: #0a0a0a;
+            border: 1px solid #222;
+            padding: 20px;
+        }
+        .profile-avatar {
+            width: 80px;
+            height: 80px;
+            background: var(--text-accent);
+            color: var(--bg-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            font-weight: bold;
+            border-radius: 50%;
+        }
+        .profile-content p { color: #ccc; font-size: 0.9rem; margin: 0; }
+
         /* --- Growth Section Architecture --- */
         .growth-container { display: flex; flex-direction: column; gap: 30px; margin-top: 20px; }
         
@@ -187,6 +210,26 @@
         .audit-cta-box:hover { border-color: var(--danger-color); box-shadow: 0 0 10px var(--danger-color); }
         .cta-text { color: var(--text-accent); font-weight: bold; font-size: 1.1rem; }
 
+        /* Ver 6.3 NEW: Deflationary Logic Counters */
+        .deflation-counter-container {
+            display: flex;
+            justify-content: space-around;
+            gap: 20px;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #000;
+            border: 1px solid #111;
+        }
+        .deflation-counter-box {
+            flex: 1;
+            text-align: center;
+            padding: 10px;
+            border: 1px solid var(--text-accent);
+            background: #0a0a0a;
+        }
+        .counter-label { font-size: 0.7rem; color: #888; text-transform: uppercase; display: block; margin-bottom: 5px; }
+        .counter-value { font-size: 1.2rem; color: var(--text-accent); font-weight: bold; text-shadow: 0 0 5px var(--text-accent); }
+
         /* Circular Logic Diagram */
         .burn-circular-diagram {
             margin-top: 15px;
@@ -213,8 +256,40 @@
         .sim-danger { color: var(--danger-color); }
         .sim-accent { color: var(--text-accent); }
 
-        /* --- Independent Auditor's Logs --- */
+        /* --- Independent Auditor's Logs ( Phase 5 実装) (Ver 5.6 Inheritance, 5.9 言語監査完了, 6.3 Scorecard統合) --- */
         #auditor-logs { background: #050505; border: 1px solid var(--text-accent); position: relative; }
+        
+        /* Ver 6.3 NEW: Scorecard Display */
+        .audit-scorecard-container {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            padding: 20px;
+            background: #000;
+            border: 1px solid #111;
+            text-align: center;
+        }
+        .scorecard-label { font-size: 0.8rem; color: var(--text-accent); font-weight: bold; display: block; margin-bottom: 10px; }
+        .scorecard-image-box {
+            width: 300px;
+            height: 300px;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: #0a0a0a;
+            border: 1px solid #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #444;
+            font-size: 0.8rem;
+            position: relative;
+        }
+        /* placeholder for the dynamic scorecard image */
+        #dynamic-scorecard-image {
+            max-width: 100%;
+            max-height: 100%;
+            display: none; /* hidden until data is loaded */
+        }
+        
         .log-box {
             background-color: #000;
             border: 1px solid #222;
@@ -228,29 +303,6 @@
         .audit-entry { margin-bottom: 5px; }
         .audit-good { color: var(--success-color); }
         .audit-bad { color: var(--danger-color); }
-
-        /* --- Profile --- */
-        .profile-section {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            background: #0a0a0a;
-            border: 1px solid #222;
-            padding: 20px;
-        }
-        .profile-avatar {
-            width: 80px;
-            height: 80px;
-            background: var(--text-accent);
-            color: var(--bg-color);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            font-weight: bold;
-            border-radius: 50%;
-        }
-        .profile-content p { color: #ccc; font-size: 0.9rem; margin: 0; }
 
         /* --- Z2Z Roadmap (Timeline) --- */
         .roadmap-timeline {
@@ -426,11 +478,24 @@
                 </div>
 
                 <div class="growth-card" style="border-left: 4px solid var(--text-accent);">
-                    <h3>02. Z2Z Logic: Anti-Fragile Hope Architecture.</h3>
-                    <p>Built upon a different philosophy.Mathematically protected, precisely constructed by the shadow craftsman, engineered for sustainable **Deflationary Hope**. Great services never discount. Z2Z Terminal (Phase 2 Utility) remains paid to capture value (Hypothesis Monthly Target: ~$14,500/Month). We utilize a portion (〇〇%) of this captured value to Buy-back & Burn Z2Z, creating sustainable deflation and hope (Hope based on utility). circular logic. inspect the Fact. Logic Over Hype.</p>
+                    <h3>03. Z2Z Logic: Anti-Fragile Hope Architecture.</h3>
+                    <p>Built upon a different philosophy.Mathematically protected, precisely constructed by the shadow craftsman, engineered for sustainable **Deflationary Hope**.</p>
+                    
+                    <div class="deflation-counter-container">
+                        <div class="deflation-counter-box">
+                            <span class="counter-label">$Z2Z TOTAL CAPTURED (USD Hypothesis)</span>
+                            <span class="counter-value" id="z2z-captured-value">$14,500</span>
+                        </div>
+                        <div class="deflation-counter-box">
+                            <span class="counter-label">$Z2Z TOTAL BURNED (Hypothesis)</span>
+                            <span class="counter-value" id="z2z-burned-value">120,500,000</span>
+                        </div>
+                    </div>
+
+                    <p>Z2Z Terminal (Phase 2 Utility) operates as a paid premium service (SaaS SaaS) to capture value (Hypothesis Monthly Target: ~$14,500/Month). We utilize a portion (〇〇%) of this captured value for Buy-back & Burn from open market, creating sustainable deflation and hope (論理に基づく爆発的な期待感). circular logic. inspect the Fact. Logic Over Hype.</p>
                     
                     <div class="burn-circular-diagram">
-                        [ Hoshi's Captured Value (SaaS/API) ] → → → [ 〇〇% Used for Buy-back & Burn ] → → → [ Z2Z Deflation & Holder Hope ]
+                        [ Hoshi's Captured Value (SaaS/API) ] → → → [ 〇〇% Used for Buy-back & Burn ] → → → [ Z2Z Deflation & Captured Hope ]
                     </div>
                 </div>
             </div>
@@ -439,8 +504,28 @@
         <section id="auditor-logs">
             <h2>> Independent Logs: Live Z2Z Audit Logs</h2>
             <div class="live-label">● LIVE</div>
+
+            <div class="audit-scorecard-container">
+                <span class="scorecard-label">> Z2Z Audit Scorecard (Live Simulation)</span>
+                <div class="scorecard-image-box">
+                    <img id="dynamic-scorecard-image" src="" alt="Live Audit Scorecard">
+                    <span id="scorecard-placeholder">Waiting forRPC data...</span>
+                </div>
+            </div>
+
             <div class="log-box" id="independent-log">
                 <div class="audit-entry">> Z2Z Logical engine operational. stand by for new Solana mainnet-beta signature...</div>
+            </div>
+        </section>
+
+        <section id="meet-founder">
+            <h2>> Meets Tomokazu Hoshi (Shadow) (Ver 5.1/6.0 Inheritance)</h2>
+            <div class="profile-section">
+                <div class="profile-avatar">星</div>
+                <div class="profile-content">
+                    <h4>Architect of decentralized logic.</h4>
+                    <p>Details unknown. Name may be a mask, details are logic. Driven by a Japanese philosophy of craftsmanship—precise, ceaseless code construction. The shadow constructs the decentralized truth. Do not look for the man. Inspect the output. Logic Over Hype.</p>
+                </div>
             </div>
         </section>
 
@@ -463,17 +548,6 @@
                 <div class="roadmap-item">
                     <h4>Phase 4: Multi-Chain Logic Domination (Future)</h4>
                     <p>Z2Z Logic dominate other networks, ensuring mathematics replaces hype. <span class="sim-accent"> [ Hypothesis Target: Captured Value ~$100,000/Month ] </span></p>
-                </div>
-            </div>
-        </section>
-
-        <section id="meet-founder">
-            <h2>> Meets Tomokazu Hoshi (Shadow) (Ver 5.1/6.0 Inheritance)</h2>
-            <div class="profile-section">
-                <div class="profile-avatar">星</div>
-                <div class="profile-content">
-                    <h4>Architect of decentralized logic.</h4>
-                    <p>Details unknown. Name may be a mask, details are logic. Driven by a Japanese philosophy of craftsmanship—precise, ceaseless code construction. The shadow constructs the decentralized truth. Do not look for the man. Inspect the output. Logic Over Hype.</p>
                 </div>
             </div>
         </section>
@@ -549,25 +623,60 @@
             }, 1000);
         }
 
-        // Independent Logs 実況（Ver 5.6 新規, 5.9 Global Fix 中国語・日本語から英語へ監査完了）
+        // Ver 6.3 NEW: Counter Logic (Live Simulation Hypothesis)
+        let capturedVal = 14500.00;
+        let burnedVal = 120500000;
+        const capturedEl = document.getElementById('z2z-captured-value');
+        const burnedEl = document.getElementById('z2z-burned-value');
+
+        function updateCounters() {
+            // Hypothesis:툴이監査をするたびに Captured Valueが少し増える (実需)
+            capturedVal += (Math.random() * 5); // incrementally increase
+            
+            // Hypothesis: Captured Valueが増えると、Burned Valueも増える (循環)
+            if (Math.random() > 0.7) { // occasional burn event simulation
+                burnedVal += Math.floor(Math.random() * 50000); // incrementally increase burned amount
+            }
+
+            capturedEl.innerText = `$${capturedVal.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')}`;
+            burnedEl.innerText = burnedVal.toLocaleString();
+        }
+        setInterval(updateCounters, 3000); // 3秒ごとにカウンターを更新
+
+        // Independent Logs 実況（Ver 5.6 新規, 5.9 Global Fix 言語監査完了, 6.3 Scorecard統合）
         const indyLog = document.getElementById('independent-log');
+        const scorecardImg = document.getElementById('dynamic-scorecard-image');
+        const scorecardPlaceholder = document.getElementById('scorecard-placeholder');
+
+        // Hypothesis for Phase 5 real-time audit实況
         const audits = [
-            { id: '1a2b3c', score: 100, good: true, desc: 'Renounced MINT/Freeze' },
-            { id: 'ca1234', score: 40, good: false, desc: 'Cluster Detected (>20%)' },
-            { id: 'Z2Z', score: 100, good: true, desc: 'SIGNATURE DETECTED' },
-            { id: 'def456', score: 70, good: true, desc: 'Verified 0% Cluster' }
+            { id: '1a2b3c', score: 100, good: true, desc: 'Renounced MINT/Freeze Authority', img: 'image_score100.png' },
+            { id: 'ca1234', score: 40, good: false, desc: 'Cluster Detected (>20%). Risk extraction.', img: 'image_score40.png' },
+            { id: 'Z2Z', score: 100, good: true, desc: 'Z2Z SIGNATURE DETECTED. Built for truth.', img: 'image_score100_z2z.png' },
+            { id: 'def456', score: 70, good: true, desc: 'Verified 0% Cluster. MINT not renounced.', img: 'image_score70.png' },
+            { id: 'sol999', score: 10, good: false, desc: 'Cabal monopoly detected (>40%). Collapse imminent Collapse imminent.', img: 'image_score10.png' }
         ];
         let auditIdx = 0;
 
         function addAuditorEntry() {
             const audit = audits[auditIdx % audits.length];
-            const cls = audit.good ? 'audit-good' : 'audit-bad';
+            
+            // 1. Text Log Update
             const logEntry = `<div class="audit-entry"> ${new Date().toLocaleTimeString()} > INCOMING SIGNATURE: ${audit.id} | Z2Z Logic score: ${audit.score}/100 [ ${audit.desc} ]</div>`;
             indyLog.innerHTML += logEntry;
             indyLog.scrollTop = indyLog.scrollHeight;
+
+            // 2. Scorecard Update ( Ver 6.3 )
+            if (scorecardPlaceholder) scorecardPlaceholder.style.display = 'none'; // hide placeholder
+            
+            // Hypothesis: Phase 5에서는ここでRPCデータに基づく画像URLを生成する
+            // 現在はダミーの画像URL (audit.img) をセットする
+            scorecardImg.src = audit.img; 
+            scorecardImg.style.display = 'block'; // show image
+
             auditIdx++;
         }
-        setInterval(addAuditorEntry, 4000); // 4秒ごとに新しい監査ログを追加
+        setInterval(addAuditorEntry, 4000); // 4秒ごとに新しい監査ログとスコアカードを追加
         
     </script>
 </body>
