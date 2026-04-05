@@ -187,7 +187,7 @@
         .audit-cta-box:hover { border-color: var(--danger-color); box-shadow: 0 0 10px var(--danger-color); }
         .cta-text { color: var(--text-accent); font-weight: bold; font-size: 1.1rem; }
 
-        /* Ver 6.3 NEW: Deflationary Logic Counters */
+        /* Ver 6.5 NEW: Deflationary Logic Counters (Simulation Hypothesis) */
         .deflation-counter-container {
             display: flex;
             justify-content: space-around;
@@ -233,10 +233,10 @@
         .sim-danger { color: var(--danger-color); }
         .sim-accent { color: var(--text-accent); }
 
-        /* --- Independent Auditor's Logs ( Phase 5 実装) (Ver 5.6 Inheritance, 5.9 Global Fix 言語監査完了, 6.3 Scorecard統合) --- */
+        /* --- Independent Auditor's Logs ( Phase 5 実装) (Ver 5.6 Inheritance, 5.9 Global Fix 監査完了, 6.5 Scorecard統合) --- */
         #auditor-logs { background: #050505; border: 1px solid var(--text-accent); position: relative; }
         
-        /* Ver 6.3 NEW: Scorecard Display */
+        /* Ver 6.5 NEW: Scorecard Display (Simulation Placeholder) */
         .audit-scorecard-container {
             margin-top: 20px;
             margin-bottom: 20px;
@@ -260,7 +260,7 @@
             font-size: 0.8rem;
             position: relative;
         }
-        /* placeholder for the dynamic scorecard image */
+        /* Ver 6.5 styling for the placeholder '?' mark in a broken image box */
         #dynamic-scorecard-image {
             max-width: 100%;
             max-height: 100%;
@@ -509,7 +509,7 @@
                 <span class="scorecard-label">> Z2Z Audit Scorecard (Live Simulation)</span>
                 <div class="scorecard-image-box">
                     <img id="dynamic-scorecard-image" src="" alt="Live Audit Scorecard">
-                    <span id="scorecard-placeholder">Waiting forRPC data...</span>
+                    <span id="scorecard-placeholder">Waiting for RPC data...</span>
                 </div>
             </div>
 
@@ -535,7 +535,7 @@
             <div class="roadmap-timeline">
                 <div class="roadmap-item completed">
                     <h4>Phase 1: Foundation Built (Completed)</h4>
-                    <p>Z2Z Engine V1.0 operational. Official launch on Pump.fun with verified 0% clustering.</p>
+                    <p>Z2Z Engine V1.0 operational. Official launch on Pump.fun with verified 0% clustering.</    div>
                 </div>
                 <div class="roadmap-item active completed">
                     <h4>Phase 2: Data 武装化 (Live)</h4>
@@ -623,7 +623,7 @@
             }, 1000);
         }
 
-        // Ver 6.3 NEW: Counter Logic (Live Simulation Hypothesis)
+        // Ver 6.5 NEW: Counter Logic (Live Simulation Hypothesis)
         let capturedVal = 14500.00;
         let burnedVal = 120500000;
         const capturedEl = document.getElementById('z2z-captured-value');
@@ -643,18 +643,20 @@
         }
         setInterval(updateCounters, 3000); // 3秒ごとにカウンターを更新
 
-        // Independent Logs 実況（Ver 5.6 新規, 5.9 Global Fix 言語監査完了, 6.3 Scorecard統合）
+        // Independent Logs 実況（Ver 5.6 新規, 5.9 Global Fix 言語監査完了, 6.5 Scorecard統合）
         const indyLog = document.getElementById('independent-log');
         const scorecardImg = document.getElementById('dynamic-scorecard-image');
         const scorecardPlaceholder = document.getElementById('scorecard-placeholder');
 
-        // Hypothesis for Phase 5 real-time audit实況
+        // Hypothesis for Phase 5 real-time audit实況 (Simulation only)
+        // Since Gemini cannot generate binary image files, we simulate the logic of setting the image src.
+        // Hoshi must deploy actual image files (image_score100.png, etc.) to GitHub for this to work perfectly.
         const audits = [
             { id: '1a2b3c', score: 100, good: true, desc: 'Renounced MINT/Freeze Authority', img: 'image_score100.png' },
             { id: 'ca1234', score: 40, good: false, desc: 'Cluster Detected (>20%). Risk extraction.', img: 'image_score40.png' },
             { id: 'Z2Z', score: 100, good: true, desc: 'Z2Z SIGNATURE DETECTED. Built for truth.', img: 'image_score100_z2z.png' },
             { id: 'def456', score: 70, good: true, desc: 'Verified 0% Cluster. MINT not renounced.', img: 'image_score70.png' },
-            { id: 'sol999', score: 10, good: false, desc: 'Cabal monopoly detected (>40%). Collapse imminent Collapse imminent.', img: 'image_score10.png' }
+            { id: 'sol999', score: 10, good: false, desc: 'Cabal monopoly detected (>40%). Collapse imminent.', img: 'image_score10.png' }
         ];
         let auditIdx = 0;
 
@@ -666,11 +668,13 @@
             indyLog.innerHTML += logEntry;
             indyLog.scrollTop = indyLog.scrollHeight;
 
-            // 2. Scorecard Update ( Ver 6.3 )
+            // 2. Scorecard Update ( Ver 6.5 )
             if (scorecardPlaceholder) scorecardPlaceholder.style.display = 'none'; // hide placeholder
             
-            // Hypothesis: Phase 5에서는ここでRPCデータに基づく画像URLを生成する
-            // 現在はダミーの画像URL (audit.img) をセットする
+            // Hypothesis for Phase 5 real RPC data binding. 
+            // Currently, we programmatically set the placeholder "Broken Image" "?" logic from Ver 6.3 
+            // by setting the actual image URL from our audits array.
+            // If the images exist on GitHub Pages, they will display. If not, they will show the placeholder defect.
             scorecardImg.src = audit.img; 
             scorecardImg.style.display = 'block'; // show image
 
