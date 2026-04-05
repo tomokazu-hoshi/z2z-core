@@ -167,6 +167,31 @@
         .method-fact { color: #ccc; display: block; margin-bottom: 5px; }
         .method-terminlogy { color: #888; font-size: 0.8rem; display: block; }
 
+        /* Solscan Guide (NEW Ver 6.1) */
+        .solscan-guide-section {
+            background: #0a0a0a;
+            border: 1px solid #222;
+            padding: 25px;
+            margin-top: 30px;
+        }
+        .solscan-guide-section ul { padding-left: 20px; color: #ccc; font-size: 0.9rem; }
+        .solscan-guide-section li { margin-bottom: 15px; border-bottom: 1px dashed #333; padding-bottom: 15px; }
+        .solscan-guide-section li:last-child { border-bottom: none; }
+
+        /* CTA to Audit Console (NEW Ver 6.1) */
+        .audit-cta-box {
+            background-color: #111;
+            border: 1px solid var(--text-accent);
+            padding: 20px;
+            text-align: center;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .audit-cta-box:hover { border-color: var(--danger-color); box-shadow: 0 0 10px var(--danger-color); }
+        .cta-text { color: var(--text-accent); font-weight: bold; font-size: 1.1rem; }
+
         /* Circular Logic Diagram */
         .burn-circular-diagram {
             margin-top: 15px;
@@ -305,17 +330,6 @@
             </div>
         </section>
 
-        <section id="meet-founder">
-            <h2>> Meets Tomokazu Hoshi (Shadow)</h2>
-            <div class="profile-section">
-                <div class="profile-avatar">星</div>
-                <div class="profile-content">
-                    <h4>Architect of decentralized logic.</h4>
-                    <p>Details unknown. Name may be a mask, details are logic. Driven by a Japanese philosophy of craftsmanship—precise, ceaseless code construction. The shadow constructs the decentralized truth. Do not look for the man. Inspect the output. Logic Over Hype.</p>
-                </div>
-            </div>
-        </section>
-
         <section id="growing-logic">
             <h2>> The Growth Mechanism</h2>
             <p>Traditional projects are engineered for **Value Extraction**, not sustainable growth. Z2Z builds value through mathematics and logic.</p>
@@ -323,7 +337,7 @@
             <div class="growth-container">
                 <div class="growth-card">
                     <h3>01. The Audit of Typical Project: Anatomizing Extraction.</h3>
-                    <p>Designed for the team and early insiders to profit, utilizing predictable semantic filters.</p>
+                    <p> designed for the team and early insiders to profit, utilizing predictable semantic filters.</p>
                     <ul>
                         <li>
                             <span class="method-step">Step 1: The "Hype" Trap.</span>
@@ -351,8 +365,34 @@
                     <div class="sim-entry">> Z2Z INSPECTOR: Logic confirms extraction was the system’s design.</div>
                 </div>
 
+                <div class="solscan-guide-section">
+                    <h3>02. Meets the On-Chain Detective: Solscan Audit Guide.</h3>
+                    <p> Traditional tools cannot expose Cabal's logic. You must audit the Fact yourself on Solscan (or similar RPC explorer). built for those with analytical filters analytical filters. Inspect the absolute Fact.</p>
+                    <ul>
+                        <li>
+                            <span class="method-step">Check 1: Holder Distribution (Cluster Analysis)</span>
+                            <span class="method-fact">Click "Holders" tab. Look for many small wallets with similar balance created around the same time. This is a Cabal cluster.</span>
+                            <span class="method-terminlogy">( Japanese reference: 胴元の搾取構造 )</span>
+                        </li>
+                        <li>
+                            <span class="method-step">Check 2: Mint Authority (Authority Renunciation)</span>
+                            <span class="method-fact">Click "Token" tab. Look for "Mint Authority" Enabled. If assigned to deployer, they can mint infinite tokens and dump. Z2Z is 0 Drops/0 Locks. built for truth.</span>
+                            <span class="method-terminlogy">( Japanese reference: ミント権限の放棄 )</span>
+                        </li>
+                        <li>
+                            <span class="method-step">Check 3: Liquidity Lock (Raydium, etc.)</span>
+                            <span class="method-fact">Click "Liquidity" tab. Check if liquidity pool tokens are sent to a burn address or verifiable locker contract. If not, Cabal can remove liquidity and rug pull rug pull. Inspect the Fact.</span>
+                            <span class="method-terminlogy">( Japanese reference: 流動性のロック )</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="audit-cta-box" onclick="location.href='#audit-console'">
+                    <span class="cta-text">> Unsure how to audit Solscan? Use Z2Z Logic Inspector for automated analysis.</span>
+                </div>
+
                 <div class="growth-card" style="border-left: 4px solid var(--text-accent);">
-                    <h3>02. Z2Z Logic: Anti-Fragile Hope Architecture.</h3>
+                    <h3>03. Z2Z Logic: Anti-Fragile Hope Architecture.</h3>
                     <p>Built upon a different philosophy.Mathematically protected, precisely constructed by the shadow craftsman, engineered for sustainable **Deflationary Hope**. Great services never discount. Z2Z Terminal (Phase 2 Utility) remains paid to capture value (Hypothesis Monthly Target: ~$14,500/Month). We utilize a portion (〇〇%) of this captured value to Buy-back & Burn Z2Z, creating sustainable deflation and hope (Hope based on utility). circular logic. inspect the Fact. Logic Over Hype.</p>
                     
                     <div class="burn-circular-diagram">
@@ -367,6 +407,17 @@
             <div class="live-label">● LIVE</div>
             <div class="log-box" id="independent-log">
                 <div class="audit-entry">> Z2Z Logical engine operational. stand by for new Solana mainnet-beta signature...</div>
+            </div>
+        </section>
+
+        <section id="meet-founder">
+            <h2>> Meets Tomokazu Hoshi (Shadow) (Ver 5.1/6.0 Inheritance)</h2>
+            <div class="profile-section">
+                <div class="profile-avatar">星</div>
+                <div class="profile-content">
+                    <h4>Architect of decentralized logic.</h4>
+                    <p>Details unknown. Name may be a mask, details are logic. Driven by a Japanese philosophy of craftsmanship—precise, ceaseless code construction. The shadow constructs the decentralized truth. Do not look for the man. Inspect the output. Logic Over Hype.</p>
+                </div>
             </div>
         </section>
 
