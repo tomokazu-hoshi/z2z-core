@@ -136,29 +136,6 @@
             margin-right: auto;
         }
 
-        /* --- Profile --- */
-        .profile-section {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            background: #0a0a0a;
-            border: 1px solid #222;
-            padding: 20px;
-        }
-        .profile-avatar {
-            width: 80px;
-            height: 80px;
-            background: var(--text-accent);
-            color: var(--bg-color);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            font-weight: bold;
-            border-radius: 50%;
-        }
-        .profile-content p { color: #ccc; font-size: 0.9rem; margin: 0; }
-
         /* --- Growth Section Architecture --- */
         .growth-container { display: flex; flex-direction: column; gap: 30px; margin-top: 20px; }
         
@@ -256,7 +233,7 @@
         .sim-danger { color: var(--danger-color); }
         .sim-accent { color: var(--text-accent); }
 
-        /* --- Independent Auditor's Logs ( Phase 5 実装) (Ver 5.6 Inheritance, 5.9 言語監査完了, 6.3 Scorecard統合) --- */
+        /* --- Independent Auditor's Logs ( Phase 5 実装) (Ver 5.6 Inheritance, 5.9 Global Fix 中国語・日本語から英語へ監査完了, 6.3 Scorecard統合) --- */
         #auditor-logs { background: #050505; border: 1px solid var(--text-accent); position: relative; }
         
         /* Ver 6.3 NEW: Scorecard Display */
@@ -303,6 +280,29 @@
         .audit-entry { margin-bottom: 5px; }
         .audit-good { color: var(--success-color); }
         .audit-bad { color: var(--danger-color); }
+
+        /* --- Profile --- */
+        .profile-section {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background: #0a0a0a;
+            border: 1px solid #222;
+            padding: 20px;
+        }
+        .profile-avatar {
+            width: 80px;
+            height: 80px;
+            background: var(--text-accent);
+            color: var(--bg-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            font-weight: bold;
+            border-radius: 50%;
+        }
+        .profile-content p { color: #ccc; font-size: 0.9rem; margin: 0; }
 
         /* --- Z2Z Roadmap (Timeline) --- */
         .roadmap-timeline {
@@ -456,17 +456,17 @@
                                 <li>
                                     <span class="method-step">Check 1: Holder Distribution (Cluster Analysis)</span>
                                     <span class="method-fact">Click "Holders" tab. Look for many small wallets with similar balance created around the same time. This is a Cabal cluster.</span>
-                                    <span class="method-terminlogy">( Japanese reference: 胴元の搾取構造 )</span>
+                                    
                                 </li>
                                 <li>
                                     <span class="method-step">Check 2: Mint Authority (Authority Renunciation)</span>
                                     <span class="method-fact">Click "Token" tab. Look for "Mint Authority" Enabled. If assigned to deployer, they can mint infinite tokens and dump. Z2Z is 0 Drops/0 Locks. built for truth.</span>
-                                    <span class="method-terminlogy">( Japanese reference: ミント権限の放棄 )</span>
+                                    
                                 </li>
                                 <li>
                                     <span class="method-step">Check 3: Liquidity Lock (Raydium, etc.)</span>
                                     <span class="method-fact">Click "Liquidity" tab. Check if liquidity pool tokens are sent to a burn address or verifiable locker contract. If not, Cabal can remove liquidity and rug pull rug pull. Inspect the Fact.</span>
-                                    <span class="method-terminlogy">( Japanese reference: 流動性のロック )</span>
+                                    
                                 </li>
                             </ul>
                         </div>
@@ -478,7 +478,7 @@
                 </div>
 
                 <div class="growth-card" style="border-left: 4px solid var(--text-accent);">
-                    <h3>03. Z2Z Logic: Anti-Fragile Hope Architecture.</h3>
+                    <h3>02. Z2Z Logic: Anti-Fragile Hope Architecture.</h3>
                     <p>Built upon a different philosophy.Mathematically protected, precisely constructed by the shadow craftsman, engineered for sustainable **Deflationary Hope**.</p>
                     
                     <div class="deflation-counter-container">
@@ -492,7 +492,7 @@
                         </div>
                     </div>
 
-                    <p>Z2Z Terminal (Phase 2 Utility) operates as a paid premium service (SaaS SaaS) to capture value (Hypothesis Monthly Target: ~$14,500/Month). We utilize a portion (〇〇%) of this captured value for Buy-back & Burn from open market, creating sustainable deflation and hope (論理に基づく爆発的な期待感). circular logic. inspect the Fact. Logic Over Hype.</p>
+                    <p>Z2Z Terminal (Phase 2 Utility) operates as a paid premium service (SaaS SaaS) to capture value (Hypothesis Monthly Target: ~$14,500/Month). We utilize a portion (〇〇%) of this captured value for Buy-back & Burn from open market, creating sustainable deflation and hope **(Explosive Anticipation Grounded in Logic)**. circular logic. inspect the Fact. Logic Over Hype.</p>
                     
                     <div class="burn-circular-diagram">
                         [ Hoshi's Captured Value (SaaS/API) ] → → → [ 〇〇% Used for Buy-back & Burn ] → → → [ Z2Z Deflation & Captured Hope ]
